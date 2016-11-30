@@ -9,26 +9,45 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator,
+  ScrollView
 } from 'react-native';
-// import { Button } from 'react-bootstrap';
+import Register from './app/components/Register'
+import Login from './app/components/Login'
+import SplashPage from './app/components/SplashPage'
 
 export default class PersonalNote extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Navigator
+          initialRoute={{id: 'SplashPage', name: 'Index'}}
+          renderScene={this.renderScene.bind(this)}
+          configureScene={(route) => {
+            if (route.sceneConfig) {
+              return route.sceneConfig;
+            }
+            return Navigator.SceneConfigs.FloatFromRight;
+          }} />
     );
+  }
+  renderScene(route, navigator) {
+    var routeId = route.id;
+    if (routeId === 'SplashPage') {
+      return (
+        <SplashPage navigator={navigator} />
+      )
+    }
+    if (routeId === 'Register') {
+      return (
+        <Register navigator={navigator} />
+      )
+    }
+    if (routeId === 'Login') {
+      return (
+        <Login navigator={navigator} />
+      )
+    }
   }
 }
 
@@ -38,6 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    padding: 20
   },
   welcome: {
     fontSize: 20,

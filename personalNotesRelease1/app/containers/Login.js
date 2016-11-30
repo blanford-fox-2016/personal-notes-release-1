@@ -36,6 +36,7 @@ export default class Login extends Component {
 
                     <View style={styles.button}>
                         <Button
+                            onPress={this.gotoNext.bind(this)}
                             color={'white'}
                             title="Login"
                             accessibilityLabel="Login Account"
@@ -44,6 +45,7 @@ export default class Login extends Component {
 
                     <View style={styles.button}>
                         <Button
+
                             color={'white'}
                             title="Forget Password"
                             accessibilityLabel="Forget Password Account"
@@ -57,6 +59,13 @@ export default class Login extends Component {
 
             </View>
         );
+    }
+
+    gotoNext() {
+        this.props.navigator.push({
+            id: 'Notes',
+            name: 'home',
+        });
     }
 }
 

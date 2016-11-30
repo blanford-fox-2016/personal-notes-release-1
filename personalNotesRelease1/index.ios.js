@@ -6,42 +6,101 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableOpacity
 } from 'react-native';
-import Register from './app/containers/Register'
+import LoginPage from './app/containers/LoginPage'
+import MainPage from './app/containers/MainPage'
+import NoNavigatorPage from './app/containers/NoNavigatorPage'
+import PersonPage from './app/containers/PersonPage'
+import SplashPage from './app/containers/SplashPage'
+
 import Login from './app/containers/Login'
-import ResetPasswordPage from './app/containers/ResetPasswordPage'
+import Notes from './app/containers/Notes'
 
 export default class personalNotesRelease1 extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <ResetPasswordPage/>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <Navigator
+                initialRoute={{id: 'SplashPage', name: 'Index'}}
+                renderScene={this.renderScene.bind(this)}
+                configureScene={(route) => {
+                    if (route.sceneConfig) {
+                        return route.sceneConfig;
+                    }
+                    return Navigator.SceneConfigs.FloatFromRight;
+                }} />
+        );
+    }
+    renderScene(route, navigator) {
+        var routeId = route.id;
+        if (routeId === 'SplashPage') {
+            return (
+                <SplashPage
+                    navigator={navigator} />
+            );
+        }
+        if (routeId === 'Login') {
+            return (
+                <Login
+                    navigator={navigator} />
+            );
+        }
+        if (routeId === 'Notes') {
+            return (
+                <Notes
+                    navigator={navigator} />
+            );
+        }
+        if (routeId === 'PersonPage') {
+            return (
+                <PersonPage
+                    navigator={navigator} />
+            );
+        }
+        if (routeId === 'NoNavigatorPage') {
+            return (
+                <NoNavigatorPage
+                    navigator={navigator} />
+            );
+        }
+        return this.noRoute(navigator);
+
+    }
+    noRoute(navigator) {
+        return (
+            <View style={{flex: 1, alignItems: 'stretch', justifyContent: 'center'}}>
+              <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+                                onPress={() => navigator.pop()}>
+                <Text style={{color: 'red', fontWeight: 'bold'}}>Back To Home</Text>
+              </TouchableOpacity>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'yellow',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
 });
+
 
 AppRegistry.registerComponent('personalNotesRelease1', () => personalNotesRelease1);

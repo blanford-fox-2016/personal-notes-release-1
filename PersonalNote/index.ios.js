@@ -16,6 +16,7 @@ import {
 import Register from './app/components/Register'
 import Login from './app/components/Login'
 import SplashPage from './app/components/SplashPage'
+import ListNote from './app/components/ListNote'
 
 export default class PersonalNote extends Component {
   render() {
@@ -46,6 +47,11 @@ export default class PersonalNote extends Component {
     if (routeId === 'Login') {
       return (
         <Login navigator={navigator} />
+      )
+    }
+    if (routeId === 'ListNote') {
+      return (
+        <ListNote navigator={navigator} />
       )
     }
   }

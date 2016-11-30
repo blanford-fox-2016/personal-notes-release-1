@@ -9,12 +9,13 @@ import {
   Navigator,
   TouchableOpacity,
   TouchableHighlight,
+  ListView,
   TextInput
 } from 'react-native';
 // import {Button} from 'react-bootstrap';
 import { Container, Content, InputGroup, Input } from 'native-base';
 
-export default class Login extends Component {
+export default class ListNote extends Component {
   render() {
     return (
       <Navigator
@@ -28,77 +29,39 @@ export default class Login extends Component {
   }
   renderScene(route, navigator) {
     return (
-      <View style={{marginTop: 200}}>
-        <HText />
-        <FormLogin login={this.gotoNext.bind(this)} />
+      <View style={{marginTop: 70}}>
+        <Lists />
       </View>
     );
   }
-  gotoNext() {
-    this.props.navigator.push({
-      id: 'ListNote',
-      name: 'ListNote',
-    });
-  }
 }
 
-class HText extends Component {
-  render(){
-    return(
-      <Text style={styles.welcome}>
-        Login to TamvanNote!
-      </Text>
-    )
-  }
-}
 
-class FormLogin extends Component {
-  constructor(props){
-    super(props);
+class Lists extends Component {
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      email: '',
-      password: '',
-     };
+      dataSource: ds.cloneWithRows([{
+        title: 'First Note',
+        content: 'Lorem Ipsum Dolor Sit Amet'
+      },
+      {
+        title: 'Second Note',
+        content: 'Lorem Ipsum Dolor Sit Amet'
+      }]),
+    };
   }
-  test() {
-    console.log('Loggin Button Clicked');
-  }
+
   render() {
     return (
-      <View>
-        <Text>Email : </Text>
-        <TextInput
-          style={{height: 30, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(email) => this.setState({email})}
-          value={this.state.email}
-        />
-        <Text>Password : </Text>
-        <TextInput
-          secureTextEntry={true} style={{height: 30, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(password) => this.setState({password})}
-          value={this.state.password}
-        />
-        <Button
-          onPress={this.props.login}
-          title="Login"
-          style={{
-            color:'#007aff',
-            borderWidth:1,
-            borderColor:'#007aff'
-          }}
-          accessibilityLabel="Click this button to register"
-        />
-        <Button
-          onPress={this.test}
-          title="Forgot Password"
-          style={{
-            color:'#007aff',
-            borderWidth:1,
-            borderColor:'#007aff'
-          }}
-          accessibilityLabel="Click this button to register"
-        />
-      </View>
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={(rowData) => (<View style={{borderWidth:1, borderColor:'gray'}}>
+          <Text style={{fontSize:20, textAlign: 'center'}}>{rowData.title}</Text>
+          <Text>{rowData.content}</Text>
+          </View>)}
+      />
     );
   }
 
@@ -110,7 +73,7 @@ var NavigationBarRouteMapper = {
       <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}
           onPress={() => navigator.parentNavigator.pop()}>
         <Text style={{color: 'white', margin: 10,}}>
-          back
+          logout
         </Text>
       </TouchableOpacity>
     );
@@ -122,7 +85,7 @@ var NavigationBarRouteMapper = {
     return (
       <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}>
         <Text style={{color: 'white', margin: 10, fontSize: 16}}>
-          Login
+          Your Note List
         </Text>
       </TouchableOpacity>
     );

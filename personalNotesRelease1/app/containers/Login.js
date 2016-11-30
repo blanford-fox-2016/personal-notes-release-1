@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TextInput, Button } from 'react-native';
 
-export default class Register extends Component {
+export default class Login extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             email: '',
-            password: '',
-            confirmPassword: '',
+            password: ''
         }
     }
 
@@ -16,7 +15,7 @@ export default class Register extends Component {
         return (
             <View>
                 <View>
-                    <Text style={styles.title}>Welcome to Hacktiv8 Notes</Text>
+                    <Text style={styles.title}>Hacktiv8 Notes</Text>
                 </View>
 
                 <View style={{padding: 10}}>
@@ -27,7 +26,7 @@ export default class Register extends Component {
                         onChangeText={(email) => this.setState({email})}
                     />
 
-                    <Text>Your Password</Text>
+                    <Text>Password</Text>
                     <TextInput
                         secureTextEntry={true}
                         style={styles.textInput}
@@ -35,24 +34,24 @@ export default class Register extends Component {
                         onChangeText={(password) => this.setState({password})}
                     />
 
-                    <Text>Retype your Password</Text>
-                    <TextInput
-                        secureTextEntry={true}
-                        style={styles.textInput}
-                        placeholder="Type here to translate!"
-                        onChangeText={(confirmPassword) => this.setState({confirmPassword})}
-                    />
+                    <View style={styles.button}>
+                        <Button
+                            color={'white'}
+                            title="Login"
+                            accessibilityLabel="Login Account"
+                        />
+                    </View>
 
                     <View style={styles.button}>
                         <Button
                             color={'white'}
-                            title="Register"
-                            accessibilityLabel="Register Account"
+                            title="Forget Password"
+                            accessibilityLabel="Forget Password Account"
                         />
                     </View>
 
                     {/*<TouchableHighlight style={styles.button}>*/}
-                        {/*<Text style={{textAlign: 'center'}}>Register</Text>*/}
+                    {/*<Text style={{textAlign: 'center'}}>Register</Text>*/}
                     {/*</TouchableHighlight>*/}
                 </View>
 
@@ -78,6 +77,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: 'green',
         width: 300,
-        borderRadius: 10
+        borderRadius: 10,
+        marginTop: 20
     }
 });

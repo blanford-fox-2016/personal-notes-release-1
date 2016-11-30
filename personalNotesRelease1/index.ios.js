@@ -12,12 +12,14 @@ import {
   View
 } from 'react-native';
 import Register from './app/containers/Register'
+import Login from './app/containers/Login'
+import ResetPasswordPage from './app/containers/ResetPasswordPage'
 
 export default class personalNotesRelease1 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Register/>
+        <ResetPasswordPage/>
       </View>
     );
   }

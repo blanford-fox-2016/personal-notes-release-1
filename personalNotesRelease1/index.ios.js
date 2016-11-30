@@ -13,14 +13,18 @@ import {
     Navigator,
     TouchableOpacity
 } from 'react-native';
-import LoginPage from './app/containers/LoginPage'
-import MainPage from './app/containers/MainPage'
-import NoNavigatorPage from './app/containers/NoNavigatorPage'
-import PersonPage from './app/containers/PersonPage'
-import SplashPage from './app/containers/SplashPage'
+import LoginPage from './app/components/LoginPage'
+import MainPage from './app/components/MainPage'
+import NoNavigatorPage from './app/components/NoNavigatorPage'
+import PersonPage from './app/components/PersonPage'
+import SplashPage from './app/components/SplashPage'
 
-import Login from './app/containers/Login'
-import Notes from './app/containers/Notes'
+import Login from './app/components/Login'
+import Register from './app/components/Register'
+import Notes from './app/components/Notes'
+import CreateNote from './app/components/CreateNote'
+import Profile from './app/components/Profile'
+import ResetPassword from './app/components/ResetPasswordPage'
 
 export default class personalNotesRelease1 extends Component {
     render() {
@@ -32,7 +36,7 @@ export default class personalNotesRelease1 extends Component {
                     if (route.sceneConfig) {
                         return route.sceneConfig;
                     }
-                    return Navigator.SceneConfigs.FloatFromRight;
+                    return Navigator.SceneConfigs.PushFromRight;
                 }} />
         );
     }
@@ -50,21 +54,33 @@ export default class personalNotesRelease1 extends Component {
                     navigator={navigator} />
             );
         }
+        if (routeId === 'Register') {
+            return (
+                <Register
+                    navigator={navigator} />
+            );
+        }
         if (routeId === 'Notes') {
             return (
                 <Notes
                     navigator={navigator} />
             );
         }
-        if (routeId === 'PersonPage') {
+        if (routeId === 'CreateNote') {
             return (
-                <PersonPage
+                <CreateNote
                     navigator={navigator} />
             );
         }
-        if (routeId === 'NoNavigatorPage') {
+        if (routeId === 'Profile') {
             return (
-                <NoNavigatorPage
+                <Profile
+                    navigator={navigator} />
+            );
+        }
+        if (routeId === 'ResetPassword') {
+            return (
+                <ResetPassword
                     navigator={navigator} />
             );
         }

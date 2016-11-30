@@ -7,28 +7,49 @@ import {
     TouchableHighlight,
     TouchableOpacity,
     ScrollView,
-    AppRegistry
+    AppRegistry,
+    TextInput
 } from 'react-native';
 
 import ListNote from './ListNote'
 
 export default class Notes extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            search: ''
+        }
+    }
+
     render() {
         return (
             <Navigator
                 renderScene={this.renderScene.bind(this)}
                 navigationBar={
-                    <Navigator.NavigationBar style={{backgroundColor: '#246dd5', alignItems: 'center'}}
-                                             routeMapper={NavigationBarRouteMapper} />
+                    <Navigator.NavigationBar
+                        style={{backgroundColor: '#246dd5', alignItems: 'center'}}
+                        routeMapper={NavigationBarRouteMapper} />
                 } />
         );
     }
     renderScene(route, navigator) {
         return (
-            <ScrollView style={{marginTop: 70}}>
-                <ListNote />
-            </ScrollView>
+            <View>
+                <View>
+                    <TextInput
+                        style={styles.textInput}
+                        placeholder="Search Note"
+                        onChangeText={(search) => this.setState({search})}
+                    />
+
+                </View>
+                <View>
+                    <ScrollView>
+                        <ListNote />
+                    </ScrollView>
+                </View>
+            </View>
         );
     }
     gotoNext() {
@@ -53,8 +74,18 @@ var NavigationBarRouteMapper = {
     Title(route, navigator, index, navState) {
         return (
             <View>
-                <Text>Notes</Text>
+                <Text>Search Notes</Text>
             </View>
         )
     }
 };
+
+const styles = StyleSheet.create({
+
+    textInput: {
+        backgroundColor: 'white',
+        height: 30,
+        width: 300,
+        marginTop: 70
+    }
+});

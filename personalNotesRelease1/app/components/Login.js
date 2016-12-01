@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
-    TouchableOpacity } from 'react-native';
+// import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
+//     TouchableOpacity } from 'react-native';
+
+import {Container, View, Content, InputGroup, Input, Icon, Text, Button, H1} from 'native-base'
 
 export default class Login extends Component {
 
@@ -16,23 +18,49 @@ export default class Login extends Component {
         this.props.navigator.push({id: 'Notes'});
     }
 
-    gotoRegister() {
-        this.props.navigator.push({id: 'Register'});
-    }
-
     gotoResetPassword() {
         this.props.navigator.push({id: 'ResetPassword'});
     }
 
     render() {
+        const {navigator} = this.props.navigator
         return (
-            <Navigator
-                renderScene={this.renderScene.bind(this)}
-                navigationBar={
-                    <Navigator.NavigationBar
-                        routeMapper={NavigationBarRouteMapper}
-                    />
-                } />
+            <Container>
+                <Content>
+
+                    <View style={{paddingTop:50, alignItems: 'center'}}>
+                        <H1>My Personal Note</H1>
+                    </View>
+
+                    <View style={{marginTop: 20, marginBottom: 20 }}>
+                        <InputGroup borderType='rounded' >
+                            <Icon name='ios-person' style={{color:'#2ecc71'}}/>
+                            <Input placeholder='Type your username here'/>
+                        </InputGroup>
+                    </View>
+
+                    <View>
+                        <InputGroup borderType='rounded' >
+                            <Icon name='ios-lock' style={{color:'#2ecc71'}}/>
+                            <Input placeholder='Type your password here'/>
+                        </InputGroup>
+                    </View>
+
+                    <Button
+                        onPress={this.gotoNotes.bind(this)}
+                        success
+                        style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
+                        Sign Up
+                    </Button>
+
+                    <Button
+                        onPress={this.gotoResetPassword.bind(this)}
+                        info
+                        style={{ alignSelf: 'center'}}>
+                        Reset Password
+                    </Button>
+                </Content>
+            </Container>
         );
     }
 
@@ -40,7 +68,7 @@ export default class Login extends Component {
         return (
             <View style={{marginTop: 50}}>
                 <View>
-                    <Text style={styles.title}>Hacktiv8 Notes</Text>
+
                 </View>
 
                 <View style={{padding: 10}}>
@@ -89,10 +117,6 @@ export default class Login extends Component {
                             accessibilityLabel="Reset Password Account"
                         />
                     </View>
-
-                    {/*<TouchableHighlight style={styles.button}>*/}
-                    {/*<Text style={{textAlign: 'center'}}>Register</Text>*/}
-                    {/*</TouchableHighlight>*/}
                 </View>
 
             </View>
@@ -100,43 +124,3 @@ export default class Login extends Component {
     }
 }
 
-var NavigationBarRouteMapper = {
-    LeftButton(route, navigator, index, navState) {
-        return null;
-    },
-    RightButton(route, navigator, index, navState) {
-        return null;
-    },
-    Title(route, navigator, index, navState) {
-        return null
-    }
-};
-
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
-
-    text: {
-        alignSelf: 'center'
-    },
-
-    textInput: {
-        backgroundColor: 'white',
-        height: 30,
-        width: 300,
-        marginBottom: 20,
-        borderWidth: 1,
-        alignSelf: 'center'
-    },
-
-    button: {
-        backgroundColor: 'green',
-        width: 300,
-        borderRadius: 10,
-        marginTop: 20,
-        alignSelf: 'center'
-    }
-});

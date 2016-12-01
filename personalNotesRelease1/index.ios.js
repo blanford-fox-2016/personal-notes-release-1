@@ -16,12 +16,13 @@ import {
 } from 'react-native';
 
 import SplashPage from './app/components/SplashPage'
-import Login from './app/components/Login'
+import Auth from './app/components/Auth'
 import Register from './app/components/Register'
 import Notes from './app/components/Notes'
 import CreateNote from './app/components/CreateNote'
 import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
+import SuccessPage from './app/components/ResetPasswordSuccessPage'
 
 import configureStore from './app/store'
 const store = configureStore()
@@ -53,9 +54,9 @@ export default class personalNotesRelease1 extends Component {
                         navigator={navigator} />
                 );
 
-            case 'Login':
+            case 'Auth':
                 return (
-                    <Login
+                    <Auth
                         navigator={navigator} />
                 );
 
@@ -86,6 +87,12 @@ export default class personalNotesRelease1 extends Component {
             case 'ResetPassword':
                 return (
                     <ResetPassword
+                        navigator={navigator} />
+                );
+
+            case 'SuccessPage':
+                return (
+                    <SuccessPage
                         navigator={navigator} />
                 );
 

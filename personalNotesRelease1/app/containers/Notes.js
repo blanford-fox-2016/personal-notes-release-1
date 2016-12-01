@@ -10,7 +10,7 @@ class Notes extends Component {
     render() {
         return(
             <View>
-                <LaunchScreen notesReducers={notesReducers} actions={actions}/>
+                <LaunchScreen />
             </View>
         )
     }

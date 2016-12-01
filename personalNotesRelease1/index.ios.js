@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import {Provider} from 'react-redux'
 import {
     AppRegistry,
     StyleSheet,
@@ -13,12 +14,8 @@ import {
     Navigator,
     TouchableOpacity
 } from 'react-native';
-import LoginPage from './app/components/LoginPage'
-import MainPage from './app/components/MainPage'
-import NoNavigatorPage from './app/components/NoNavigatorPage'
-import PersonPage from './app/components/PersonPage'
-import SplashPage from './app/components/SplashPage'
 
+import SplashPage from './app/components/SplashPage'
 import Login from './app/components/Login'
 import Register from './app/components/Register'
 import Notes from './app/components/Notes'
@@ -26,19 +23,24 @@ import CreateNote from './app/components/CreateNote'
 import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
 
+import configureStore from './app/store'
+const store = configureStore()
+
 export default class personalNotesRelease1 extends Component {
     render() {
         return (
-            <Navigator
-                initialRoute={{id: 'SplashPage', name: 'Index'}}
-                renderScene={this.renderScene.bind(this)}
-                configureScene={(route) => {
-                    if (route.sceneConfig) {
-                        return route.sceneConfig;
-                    }
-                    return Navigator.SceneConfigs.FloatFromRight;
-                }}
-            />
+            <Provider store={store}>
+                <Navigator
+                    initialRoute={{id: 'SplashPage', name: 'Index'}}
+                    renderScene={this.renderScene.bind(this)}
+                    configureScene={(route) => {
+                        if (route.sceneConfig) {
+                            return route.sceneConfig;
+                        }
+                        return Navigator.SceneConfigs.FloatFromRight;
+                    }}
+                />
+            </Provider>
         );
     }
     renderScene(route, navigator) {

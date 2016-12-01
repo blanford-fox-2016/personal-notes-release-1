@@ -9,7 +9,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: '',
+            username: '',
             password: ''
         }
     }
@@ -35,28 +35,33 @@ export default class Login extends Component {
                     <View style={{marginTop: 20, marginBottom: 20 }}>
                         <InputGroup borderType='rounded' >
                             <Icon name='ios-person' style={{color:'#2ecc71'}}/>
-                            <Input placeholder='Type your username here'/>
+                            <Input
+                                onChangeText={(username) => this.setState({username})}
+                                placeholder='Type your username here'/>
                         </InputGroup>
                     </View>
 
                     <View>
                         <InputGroup borderType='rounded' >
                             <Icon name='ios-lock' style={{color:'#2ecc71'}}/>
-                            <Input placeholder='Type your password here'/>
+                            <Input
+                                onChangeText={(password) => this.setState({password})}
+                                secureTextEntry
+                                placeholder='Type your password here'/>
                         </InputGroup>
                     </View>
 
                     <Button
                         onPress={this.gotoNotes.bind(this)}
                         success
-                        style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
-                        Sign Up
+                        style={{ width:200, alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
+                        Login
                     </Button>
 
                     <Button
                         onPress={this.gotoResetPassword.bind(this)}
                         info
-                        style={{ alignSelf: 'center'}}>
+                        style={{ width:200, alignSelf: 'center'}}>
                         Reset Password
                     </Button>
                 </Content>

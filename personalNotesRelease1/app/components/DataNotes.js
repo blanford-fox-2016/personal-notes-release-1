@@ -9,20 +9,15 @@ export default class ListNote extends Component {
 
         const {notesReducers} = this.props
         return(
-            <Card>
-                <CardItem header>
+            <Card style={{flex: 0}}>
+                <CardItem>
                     <Text>{notesReducers.title}</Text>
+                    <Text note>{notesReducers.updatedAt}</Text>
                 </CardItem>
 
-                <CardItem>
+                <CardItem cardBody>
                     <Text>
                         {notesReducers.content}
-                    </Text>
-                </CardItem>
-
-                <CardItem footer>
-                    <Text>
-                        {notesReducers.updatedAt}
                     </Text>
                 </CardItem>
             </Card>

@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f62d05d-5846-4ad0-9b7e-db7320482592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Auth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordSuccessPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordPage.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/SplashPage.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/SplashPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/containers/Notes.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/containers/Notes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/index.ios.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/index.ios.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,67 +42,20 @@
         <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+              <caret line="56" column="40" lean-forward="false" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResetPasswordPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordPage.js">
+      <file leaf-file-name="DataNotes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="40" column="89" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="89" />
+            <state relative-caret-position="180">
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResetPasswordSuccessPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordSuccessPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="57" lean-forward="false" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="31" column="45" lean-forward="false" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#238#272#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Notes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Notes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="52" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateNote.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/CreateNote.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="39" column="40" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,7 +100,6 @@
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.notes.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/package.json" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js" />
-        <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/ListNote.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/Notes.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/containers/Notes.js" />
@@ -160,6 +108,8 @@
         <option value="$PROJECT_DIR$/personalNotesRelease1/index.ios.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordPage.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/ResetPasswordSuccessPage.js" />
+        <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js" />
+        <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js" />
       </list>
     </option>
@@ -458,12 +408,12 @@
       <workItem from="1480480128127" duration="10866000" />
       <workItem from="1480561937690" duration="1514000" />
       <workItem from="1480564088283" duration="1989000" />
-      <workItem from="1480576031353" duration="18029000" />
+      <workItem from="1480576031353" duration="18959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32398000" />
+    <option name="totallyTimeSpent" value="33328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -649,14 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/ListNote.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -664,14 +606,6 @@
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/CreateNote.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="39" column="40" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -685,32 +619,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Notes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="52" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/SplashPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="44" />
           <folding>
             <element signature="e#15#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/index.ios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,6 +649,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Notes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="52" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/CreateNote.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="39" column="40" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -746,10 +678,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/index.ios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <caret line="56" column="40" lean-forward="false" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
           <folding />
         </state>
       </provider>

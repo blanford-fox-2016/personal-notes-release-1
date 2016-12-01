@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, TextInput, Button, Navigator } from 'react-native';
+// import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
+//     TouchableOpacity } from 'react-native';
+
+import {Container, View, Content, InputGroup, Input, Icon, Text, Button, H1} from 'native-base'
 
 export default class Register extends Component {
 
@@ -8,114 +11,61 @@ export default class Register extends Component {
         this.state = {
             email: '',
             password: '',
-            confirmPassword: '',
+            age: ''
         }
     }
 
-    render() {
-        return (
-            <Navigator
-                renderScene={this.renderScene.bind(this)}
-
-                navigationBar={
-                    <Navigator.NavigationBar
-                        routeMapper={NavigationBarRouteMapper}
-                    />
-                } />
-        );
-    }
-
-    renderScene(route, navigator) {
-        return (
-            <View style={{marginTop: 50}}>
-                <View>
-                    <Text style={styles.title}>Welcome to Hacktiv8 Notes</Text>
-                </View>
-
-                <View style={{padding: 10}}>
-                    <View style={{alignSelf: 'center'}}>
-                        <Text>Email</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder="Type here to translate!"
-                            onChangeText={(email) => this.setState({email})}
-                        />
-                    </View>
-
-                    <View style={{alignSelf: 'center'}}>
-                        <Text>Your Password</Text>
-                        <TextInput
-                            secureTextEntry={true}
-                            style={styles.textInput}
-                            placeholder="Type here to translate!"
-                            onChangeText={(password) => this.setState({password})}
-                        />
-                    </View>
-
-                    <View style={{alignSelf: 'center'}}>
-                        <Text>Retype your Password</Text>
-                        <TextInput
-                            secureTextEntry={true}
-                            style={styles.textInput}
-                            placeholder="Type here to translate!"
-                            onChangeText={(confirmPassword) => this.setState({confirmPassword})}
-                        />
-                    </View>
-
-                    <View style={styles.button}>
-                        <Button onPress={this.gotoNotes.bind(this)}
-                            color={'white'}
-                            title="Register"
-                            accessibilityLabel="Register Account"
-                        />
-                    </View>
-
-                </View>
-
-            </View>
-        );
-    }
-
     gotoNotes() {
-        this.props.navigator.push({
-            id: 'Notes',
-            name: 'Notes',
-        });
+        this.props.navigator.push({id: 'Notes'});
+    }
+
+
+    render() {
+        const {navigator} = this.props.navigator
+        return (
+            <Container>
+                <Content>
+
+                    <View style={{paddingTop:50, alignItems: 'center'}}>
+                        <H1>My Personal Note</H1>
+                    </View>
+
+                    <View style={{marginTop: 20, marginBottom: 20 }}>
+                        <InputGroup borderType='rounded' >
+                            <Icon name='ios-person' style={{color:'#2ecc71'}}/>
+                            <Input
+                                placeholder='Type your username here'
+                                onChangeText={(username) => this.setState({username})}
+                            />
+                        </InputGroup>
+                    </View>
+
+                    <View>
+                        <InputGroup borderType='rounded' >
+                            <Icon name='ios-lock' style={{color:'#2ecc71'}}/>
+                            <Input
+                                onChangeText={(password) => this.setState({password})}
+                                placeholder='Type your password here'/>
+                        </InputGroup>
+                    </View>
+
+                    <View style={{marginTop: 20}}>
+                        <InputGroup borderType='rounded' >
+                            <Input
+                                onChangeText={(age) => this.setState({age})}
+                                placeholder='Type your age here'/>
+                        </InputGroup>
+                    </View>
+
+                    <Button
+                        onPress={this.gotoNotes.bind(this)}
+                        success
+                        style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
+                        Sign Up
+                    </Button>
+                </Content>
+            </Container>
+        );
     }
 }
 
-var NavigationBarRouteMapper = {
-    LeftButton(route, navigator, index, navState) {
-        return null;
-    },
-    RightButton(route, navigator, index, navState) {
-        return null;
-    },
-    Title(route, navigator, index, navState) {
-        return null
-    }
-};
-
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
-
-    textInput: {
-        backgroundColor: 'white',
-        height: 30,
-        width: 300,
-        marginBottom: 20,
-        borderWidth: 1,
-        alignSelf: 'center'
-    },
-
-    button: {
-        backgroundColor: 'green',
-        width: 300,
-        borderRadius: 10,
-        alignSelf: 'center'
-    }
-});

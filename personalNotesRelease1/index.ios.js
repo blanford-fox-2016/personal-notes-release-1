@@ -20,11 +20,11 @@ import PersonPage from './app/components/PersonPage'
 import SplashPage from './app/components/SplashPage'
 
 import Login from './app/components/Login'
-// import Register from './app/components/Register'
+import Register from './app/components/Register'
 import Notes from './app/components/Notes'
 import CreateNote from './app/components/CreateNote'
-// import Profile from './app/components/Profile'
-// import ResetPassword from './app/components/ResetPasswordPage'
+import Profile from './app/components/Profile'
+import ResetPassword from './app/components/ResetPasswordPage'
 
 export default class personalNotesRelease1 extends Component {
     render() {
@@ -57,11 +57,11 @@ export default class personalNotesRelease1 extends Component {
                         navigator={navigator} />
                 );
 
-            // case 'Register':
-            //     return (
-            //         <Register
-            //             navigator={navigator} />
-            //     );
+            case 'Register':
+                return (
+                    <Register
+                        navigator={navigator} />
+                );
 
             case 'Notes':
                 return (
@@ -69,23 +69,23 @@ export default class personalNotesRelease1 extends Component {
                         navigator={navigator} />
                 );
 
-            // case 'CreateNote':
-            //     return (
-            //         <CreateNote
-            //             navigator={navigator} />
-            //     );
+            case 'CreateNote':
+                return (
+                    <CreateNote
+                        navigator={navigator} />
+                );
 
-            // case 'Profile':
-            //     return (
-            //         <Profile
-            //             navigator={navigator} />
-            //     );
-            //
-            // case 'ResetPassword':
-            //     return (
-            //         <ResetPassword
-            //             navigator={navigator} />
-            //     );
+            case 'Profile':
+                return (
+                    <Profile
+                        navigator={navigator} />
+                );
+
+            case 'ResetPassword':
+                return (
+                    <ResetPassword
+                        navigator={navigator} />
+                );
 
             default:
             return this.noRoute(navigator);

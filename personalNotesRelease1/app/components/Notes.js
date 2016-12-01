@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    Navigator,
-    TouchableHighlight,
-    TouchableOpacity,
-    ScrollView,
-    AppRegistry
-} from 'react-native';
+import {AppRegistry} from 'react-native'
+
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, Card, CardItem, Text } from 'native-base';
 
 import ListNote from './ListNote'
 
@@ -18,32 +11,35 @@ export default class Notes extends Component {
     //     this.props.navigator.navigationBar = this.navBar()
     // }
 
-    navBar(){
-        return(
-        <Navigator.NavigationBar style={{backgroundColor: '#246dd5'}}
-                                 routeMapper={NavigationBarRouteMapper} />
-        )
-    }
-
     render() {
         return (
-            <Navigator
-                renderScene={this.renderScene.bind(this)}
-                navigationBar={
-                    <Navigator.NavigationBar
-                        style={{backgroundColor: '#246dd5', alignItems: 'center'}}
-                        routeMapper={NavigationBarRouteMapper}
-                    />
-                } />
+            <Container>
+                <Header>
+                    <Button transparent>
+                        <Icon name='ios-menu' />
+                    </Button>
+
+                    <Title>Notes</Title>
+
+                    <Button transparent>
+                        Create Note
+                    </Button>
+                </Header>
+
+                <Content>
+                    <ListNote />
+                </Content>
+
+            </Container>
         );
     }
 
     renderScene(route, navigator) {
-        return (
-            <ScrollView style={{marginTop: 70}}>
-                <ListNote />
-            </ScrollView>
-        );
+        // return (
+        //     <ScrollView style={{marginTop: 70}}>
+        //         <ListNote />
+        //     </ScrollView>
+        // );
     }
 
     gotoNext() {

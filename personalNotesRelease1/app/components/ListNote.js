@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    Navigator,
-    TouchableHighlight,
-    TouchableOpacity
-} from 'react-native';
+
+import { Container, Content} from 'native-base';
 
 import DataNotes from './DataNotes'
 
@@ -35,9 +29,11 @@ export default class ListNote extends Component {
         })
 
         return(
-            <View>
-                {ListNoteNodes}
-            </View>
+            <Container>
+                <Content>
+                    {ListNoteNodes}
+                </Content>
+            </Container>
         )
     }
 

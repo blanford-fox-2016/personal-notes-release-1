@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    Navigator,
-    TouchableHighlight,
-    TouchableOpacity
-} from 'react-native';
+
+import {Content, Card, CardItem, Text } from 'native-base';
 
 export default class ListNote extends Component {
 
@@ -15,11 +9,23 @@ export default class ListNote extends Component {
 
         const {data} = this.props
         return(
-            <View style={{borderWidth: 1, marginBottom: 10}}>
-                <Text style={{fontSize: 30, textAlign: 'center'}} >{data.title}</Text>
-                <Text style={{fontSize: 20}} >{data.content}</Text>
-                <Text style={{fontSize: 10}} >{data.createdAt}</Text>
-            </View>
+            <Card>
+                <CardItem header>
+                    <Text>{data.title}</Text>
+                </CardItem>
+
+                <CardItem>
+                    <Text>
+                        {data.content}
+                    </Text>
+                </CardItem>
+
+                <CardItem footer>
+                    <Text>
+                        {data.createdAt}
+                    </Text>
+                </CardItem>
+            </Card>
         )
     }
 

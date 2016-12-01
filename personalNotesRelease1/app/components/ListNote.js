@@ -1,30 +1,36 @@
-import React, { Component } from 'react';
-
+import React, {Component, PropTypes} from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as AppActions from '../actions'
 import { Container, Content} from 'native-base';
 
 import DataNotes from './DataNotes'
 
-export default class ListNote extends Component {
+class ListNote extends Component {
+
+    componentDidMount() {
+        this.props.actions.getNotes()
+    }
 
     render() {
+        const {notesReducers, actions} = this.props
+        // const notes = [
+        //     {
+        //         title: 'note 1',
+        //         content: 'content 1',
+        //         createdAt: '12:12 12/12/2012'
+        //     },
+        //     {
+        //         title: 'note 2',
+        //         content: 'content 2',
+        //         createdAt: '12:12 12/12/2012'
+        //     }
+        // ]
 
-        const notes = [
-            {
-                title: 'note 1',
-                content: 'content 1',
-                createdAt: '12:12 12/12/2012'
-            },
-            {
-                title: 'note 2',
-                content: 'content 2',
-                createdAt: '12:12 12/12/2012'
-            }
-        ]
-
-        let ListNoteNodes = notes.map(function (item) {
+        let ListNoteNodes = notesReducers.map(function (item) {
             console.log("ini item: ", item)
             return(
-                <DataNotes key={item.title} data={item} />
+                <DataNotes key={item.id} notesReducers={item} {...actions}/>
             )
         })
 
@@ -38,3 +44,22 @@ export default class ListNote extends Component {
     }
 
 }
+
+ListNote.propTypes = {
+    notesReducers: PropTypes.array.isRequired
+}
+
+function mapStateToProps(state) {
+    return {
+        notesReducers: state.notesReducers
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {actions: bindActionCreators(AppActions, dispatch)}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ListNote)

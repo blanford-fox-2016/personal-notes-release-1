@@ -7,22 +7,22 @@ export default class ListNote extends Component {
     render() {
 
 
-        const {data} = this.props
+        const {notesReducers} = this.props
         return(
             <Card>
                 <CardItem header>
-                    <Text>{data.title}</Text>
+                    <Text>{notesReducers.title}</Text>
                 </CardItem>
 
                 <CardItem>
                     <Text>
-                        {data.content}
+                        {notesReducers.content}
                     </Text>
                 </CardItem>
 
                 <CardItem footer>
                     <Text>
-                        {data.createdAt}
+                        {notesReducers.updatedAt}
                     </Text>
                 </CardItem>
             </Card>

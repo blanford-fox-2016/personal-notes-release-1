@@ -9,7 +9,7 @@ export default class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: '',
+            name: '',
             password: '',
             age: ''
         }
@@ -17,6 +17,24 @@ export default class Register extends Component {
 
     gotoNotes() {
         this.props.navigator.push({id: 'Notes'});
+    }
+
+    registerUser(e) {
+        e.preventDefault()
+        let TempUserId = Date.now().toString()
+        let name = this.state.name.trim()
+        let password = this.state.password.trim()
+        let age = this.state.age.trim()
+        if (!name || !password || !age) {
+            return
+        }
+
+        this.props.onRegisterUser(TempUserId, name, password, age)
+        this.setState({
+            name: '',
+            password: '',
+            age: ''
+        })
     }
 
 
@@ -35,7 +53,7 @@ export default class Register extends Component {
                             <Icon name='ios-person' style={{color:'#2ecc71'}}/>
                             <Input
                                 placeholder='Type your username here'
-                                onChangeText={(username) => this.setState({username})}
+                                onChangeText={(name) => this.setState({name})}
                             />
                         </InputGroup>
                     </View>
@@ -44,6 +62,7 @@ export default class Register extends Component {
                         <InputGroup borderType='rounded' >
                             <Icon name='ios-lock' style={{color:'#2ecc71'}}/>
                             <Input
+                                secureTextEntry
                                 onChangeText={(password) => this.setState({password})}
                                 placeholder='Type your password here'/>
                         </InputGroup>
@@ -58,7 +77,7 @@ export default class Register extends Component {
                     </View>
 
                     <Button
-                        onPress={this.gotoNotes.bind(this)}
+                        onPress={this.registerUser.bind(this)}
                         success
                         style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
                         Sign Up

@@ -29,9 +29,28 @@ export default class Notes extends Component {
         super(props)
         this.state = {
             modalVisible: false,
+            title: '',
+            content: ''
         }
     }
 
+
+    createNote(e) {
+        e.preventDefault()
+        let title = this.state.title.trim()
+        let content = this.state.content.trim()
+        if (!title || !content) {
+            return
+        }
+        let User = {
+            id:Auth.getUser().id,
+            username: Auth.getUser().username
+        }
+        this.props.onSave(User, timeline)
+        this.setState({
+            timeline: ''
+        })
+    }
 
     render() {
         return (
@@ -79,12 +98,14 @@ export default class Notes extends Component {
                                     <ListItem>
                                         <InputGroup>
                                             <Input
+                                                onChangeText={(title) => this.setState({title})}
                                                 placeholder="Insert title" />
                                         </InputGroup>
                                     </ListItem>
 
                                     <ListItem>
                                         <Textarea
+                                            onChangeText={(content) => this.setState({content})}
                                             style={{height: 100}}
                                             placeholder="Insert content"
                                         />
@@ -93,6 +114,7 @@ export default class Notes extends Component {
 
 
                                 <Button
+                                    onPress={this.createNote.bind(this)}
                                     success
                                     style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20, borderRadius: 0 }}>
                                     Save

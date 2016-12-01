@@ -1,45 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Container, Content, Tabs } from 'native-base';
-// import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
-//     TouchableOpacity } from 'react-native';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as AppActions from '../actions'
 
 import Register from './Register';
 import Login from './Login';
 
-export default class Auth extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: '',
-            password: ''
-        }
-    }
-
-    gotoNotes() {
-        this.props.navigator.push({id: 'Notes'});
-    }
-
-    gotoRegister() {
-        this.props.navigator.push({id: 'Register'});
-    }
-
-    gotoResetPassword() {
-        this.props.navigator.push({id: 'ResetPassword'});
-    }
+class Auth extends Component {
 
     render() {
-        var navigator = this.props.navigator;
+        const {actions, navigator} = this.props
         return (
             <Container>
                 <Content>
                     <Tabs>
                         <Login tabLabel='Login' navigator={navigator} />
-                        <Register tabLabel='Register' navigator={navigator} />
+                        <Register onRegisterUser={actions.registerUser} tabLabel='Register' navigator={navigator} />
                     </Tabs>
                 </Content>
             </Container>
         );
     }
-
 }
+
+Auth.propTypes = {
+    actions: PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+    return {
+
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {actions: bindActionCreators(AppActions, dispatch)}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Auth)

@@ -14,19 +14,30 @@ import ListNote from './ListNote'
 
 export default class Notes extends Component {
 
+    // componentWillMount() {
+    //     this.props.navigator.navigationBar = this.navBar()
+    // }
+
+    navBar(){
+        return(
+        <Navigator.NavigationBar style={{backgroundColor: '#246dd5'}}
+                                 routeMapper={NavigationBarRouteMapper} />
+        )
+    }
 
     render() {
         return (
             <Navigator
                 renderScene={this.renderScene.bind(this)}
-                navigator={this.props.navigator}
                 navigationBar={
                     <Navigator.NavigationBar
                         style={{backgroundColor: '#246dd5', alignItems: 'center'}}
-                        routeMapper={NavigationBarRouteMapper} />
+                        routeMapper={NavigationBarRouteMapper}
+                    />
                 } />
         );
     }
+
     renderScene(route, navigator) {
         return (
             <ScrollView style={{marginTop: 70}}>
@@ -34,6 +45,7 @@ export default class Notes extends Component {
             </ScrollView>
         );
     }
+
     gotoNext() {
         this.props.navigator.push({
             id: 'PersonPage',
@@ -58,7 +70,7 @@ var NavigationBarRouteMapper = {
         );
     },
     RightButton(route, navigator, index, navState) {
-        console.log(navigator)
+
         return (
             <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}
                               onPress={() => navigator.parentNavigator.push({id: 'CreateNote', name:'CreateNote'})}>

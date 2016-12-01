@@ -12,6 +12,18 @@ export default class Login extends Component {
         }
     }
 
+    gotoNotes() {
+        this.props.navigator.push({id: 'Notes'});
+    }
+
+    gotoRegister() {
+        this.props.navigator.push({id: 'Register'});
+    }
+
+    gotoResetPassword() {
+        this.props.navigator.push({id: 'ResetPassword'});
+    }
+
     render() {
         return (
             <Navigator
@@ -85,27 +97,6 @@ export default class Login extends Component {
 
             </View>
         );
-    }
-
-    gotoNotes() {
-        this.props.navigator.push({
-            id: 'Notes',
-            name: 'Notes',
-        });
-    }
-
-    gotoRegister() {
-        this.props.navigator.push({
-            id: 'Register',
-            name: 'Register',
-        });
-    }
-
-    gotoResetPassword() {
-        this.props.navigator.push({
-            id: 'ResetPassword',
-            name: 'ResetPassword',
-        });
     }
 }
 

@@ -20,11 +20,11 @@ import PersonPage from './app/components/PersonPage'
 import SplashPage from './app/components/SplashPage'
 
 import Login from './app/components/Login'
-import Register from './app/components/Register'
+// import Register from './app/components/Register'
 import Notes from './app/components/Notes'
 import CreateNote from './app/components/CreateNote'
-import Profile from './app/components/Profile'
-import ResetPassword from './app/components/ResetPasswordPage'
+// import Profile from './app/components/Profile'
+// import ResetPassword from './app/components/ResetPasswordPage'
 
 export default class personalNotesRelease1 extends Component {
     render() {
@@ -36,55 +36,60 @@ export default class personalNotesRelease1 extends Component {
                     if (route.sceneConfig) {
                         return route.sceneConfig;
                     }
-                    return Navigator.SceneConfigs.PushFromRight;
-                }} />
+                    return Navigator.SceneConfigs.FloatFromRight;
+                }}
+            />
         );
     }
     renderScene(route, navigator) {
         var routeId = route.id;
-        if (routeId === 'SplashPage') {
-            return (
-                <SplashPage
-                    navigator={navigator} />
-            );
+
+        switch (routeId) {
+            case 'SplashPage':
+                return (
+                    <SplashPage
+                        navigator={navigator} />
+                );
+
+            case 'Login':
+                return (
+                    <Login
+                        navigator={navigator} />
+                );
+
+            // case 'Register':
+            //     return (
+            //         <Register
+            //             navigator={navigator} />
+            //     );
+
+            case 'Notes':
+                return (
+                    <Notes
+                        navigator={navigator} />
+                );
+
+            // case 'CreateNote':
+            //     return (
+            //         <CreateNote
+            //             navigator={navigator} />
+            //     );
+
+            // case 'Profile':
+            //     return (
+            //         <Profile
+            //             navigator={navigator} />
+            //     );
+            //
+            // case 'ResetPassword':
+            //     return (
+            //         <ResetPassword
+            //             navigator={navigator} />
+            //     );
+
+            default:
+            return this.noRoute(navigator);
         }
-        if (routeId === 'Login') {
-            return (
-                <Login
-                    navigator={navigator} />
-            );
-        }
-        if (routeId === 'Register') {
-            return (
-                <Register
-                    navigator={navigator} />
-            );
-        }
-        if (routeId === 'Notes') {
-            return (
-                <Notes
-                    navigator={navigator} />
-            );
-        }
-        if (routeId === 'CreateNote') {
-            return (
-                <CreateNote
-                    navigator={navigator} />
-            );
-        }
-        if (routeId === 'Profile') {
-            return (
-                <Profile
-                    navigator={navigator} />
-            );
-        }
-        if (routeId === 'ResetPassword') {
-            return (
-                <ResetPassword
-                    navigator={navigator} />
-            );
-        }
-        return this.noRoute(navigator);
 
     }
     noRoute(navigator) {

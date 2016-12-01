@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
-import {AppRegistry} from 'react-native'
+import {AppRegistry, View, TouchableHighlight, Modal} from 'react-native'
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, Card, CardItem, Text } from 'native-base';
+import {
+    Container,
+    Header,
+    Title,
+    Content,
+    Footer,
+    FooterTab,
+    Button,
+    Icon,
+    Card,
+    CardItem,
+    Text,
+    List,
+    ListItem,
+    InputGroup,
+    Input,
+    Picker,
+    Textarea
+} from 'native-base';
 
 import ListNote from './ListNote'
 
 export default class Notes extends Component {
 
-    // componentWillMount() {
-    //     this.props.navigator.navigationBar = this.navBar()
-    // }
+    constructor(props) {
+        super(props)
+        this.state = {
+            modalVisible: false,
+        }
+    }
+
 
     render() {
         return (
@@ -21,66 +43,77 @@ export default class Notes extends Component {
 
                     <Title>Notes</Title>
 
-                    <Button transparent>
+                    <Button
+                        onPress={() => {
+                        this.setState({modalVisible:true})
+                    }}
+                        transparent>
                         Create Note
                     </Button>
                 </Header>
 
                 <Content>
                     <ListNote />
+                    <Modal
+                        animationType={"slide"}
+                        transparent={false}
+                        visible={this.state.modalVisible}
+                        onRequestClose={() => {alert("Modal has been closed.")}}
+                    >
+
+                        <Container>
+                            <Header>
+                                <Title>Create Note</Title>
+
+                                <Button
+                                    onPress={() => {
+                                        this.setState({modalVisible:false})
+                                    }}
+                                    transparent>
+                                    Close
+                                </Button>
+                            </Header>
+
+                            <Content>
+                                <List>
+                                    <ListItem>
+                                        <InputGroup>
+                                            <Input
+                                                placeholder="Insert title" />
+                                        </InputGroup>
+                                    </ListItem>
+
+                                    <ListItem>
+                                        <Textarea
+                                            style={{height: 100}}
+                                            placeholder="Insert content"
+                                        />
+                                    </ListItem>
+                                </List>
+
+
+                                <Button
+                                    success
+                                    style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20, borderRadius: 0 }}>
+                                    Save
+                                </Button>
+                            </Content>
+
+                        </Container>
+
+                    </Modal>
+
                 </Content>
 
             </Container>
         );
     }
 
-    renderScene(route, navigator) {
-        // return (
-        //     <ScrollView style={{marginTop: 70}}>
-        //         <ListNote />
-        //     </ScrollView>
-        // );
-    }
-
-    gotoNext() {
-        this.props.navigator.push({
-            id: 'PersonPage',
-            name: 'home',
-        });
+    goToCreateNote() {
+        // this.props.navigator.push({id: 'CreateNote'});
     }
 }
 
 AppRegistry.registerComponent(
     'Notes',
     () => Notes);
-
-var NavigationBarRouteMapper = {
-    LeftButton(route, navigator, index, navState) {
-        return (
-            <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}
-                              onPress={() => navigator.parentNavigator.push({id: 'Profile', name:'Profile'})}>
-                <Text style={{color: 'white', margin: 10,}}>
-                    Profile
-                </Text>
-            </TouchableOpacity>
-        );
-    },
-    RightButton(route, navigator, index, navState) {
-
-        return (
-            <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}
-                              onPress={() => navigator.parentNavigator.push({id: 'CreateNote', name:'CreateNote'})}>
-                <Text style={{color: 'white', margin: 10,}}>
-                    Create Note
-                </Text>
-            </TouchableOpacity>
-        );
-    },
-    Title(route, navigator, index, navState) {
-        return (
-            <View>
-                <Text>Notes</Text>
-            </View>
-        );
-    }
-};

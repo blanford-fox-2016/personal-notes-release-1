@@ -14,18 +14,6 @@ class ListNote extends Component {
 
     render() {
         const {notesReducers, actions} = this.props
-        // const notes = [
-        //     {
-        //         title: 'note 1',
-        //         content: 'content 1',
-        //         createdAt: '12:12 12/12/2012'
-        //     },
-        //     {
-        //         title: 'note 2',
-        //         content: 'content 2',
-        //         createdAt: '12:12 12/12/2012'
-        //     }
-        // ]
 
         let ListNoteNodes = notesReducers.map(function (item) {
             console.log("ini item: ", item)

@@ -1,0 +1,41 @@
+[{
+  "id": 0,
+  "title" : "Reminder Rapat",
+  "content": "Jangan lupa siapin bahan materi untuk rapat jumat besok."
+},{
+  "id": 1,
+  "title": "Makan siang bareng client",
+  "content": "Meeting di cafe oliver bareng client galak"
+},{
+  "id": 2,
+  "title": "Beli mainan buat keponakan",
+  "content": "Ke toko xyz beli mainan"
+},{
+  "id": 3,
+  "title": "Gym time",
+  "content": "Inget perut ken !"
+},{
+  "id": 4,
+  "title": "Ngoding bareng temen",
+  "content": "Belajar react native bareng komunitas xyz"
+},{
+  "id": 5,
+  "title": "Makan yg sehat",
+  "content": "Makan buah2an sama sayuran"
+},{
+  "id": 6,
+  "title": "Tidur yang cukup",
+  "content": "Jangan begadang woiiii"
+},{
+  "id": 7,
+  "title": "Reminder penting banget !",
+  "content": "Tapi boong"
+},{
+  "id": 8,
+  "title": "Belajar node.js",
+  "content": "Hari rabu belajar node.js"
+},{
+  "id": 9,
+  "title": "Siap2in barang",
+  "content": "Packing barang buat ke puncak"
+}]

@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+var jwtDecode = require('jwt-decode');
 // import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
 //     TouchableOpacity } from 'react-native';
 
 import {Container, View, Content, InputGroup, Input, Icon, Text, Button, H1} from 'native-base'
 
+import { AsyncStorage } from 'react-native';
+
 export default class Register extends Component {
+
+    componentDidMount() {
+        AsyncStorage.getItem("myKey").then((value) => {
+            this.setState({"myKey": value})
+            console.log("ini di didmount: ", this.state.myKey)
+        }).done()
+    }
 
     constructor(props) {
         super(props)
@@ -40,6 +50,9 @@ export default class Register extends Component {
 
     render() {
         const {navigator} = this.props.navigator
+        // let token = jwt_decode(this.props.myKey)
+        var decoded = jwt_decode(this.props.myKey);
+        console.log(decoded);
         return (
             <Container>
                 <Content>

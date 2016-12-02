@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppRegistry, View, TouchableHighlight, Modal} from 'react-native'
+import {AppRegistry, View, TouchableHighlight, Modal, AsyncStorage} from 'react-native'
 
 import {
     Container,

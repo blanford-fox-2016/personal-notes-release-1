@@ -4,12 +4,18 @@ import {
     REGISTER_USER_FAILURE
 } from '../constant/ActionTypes'
 
+import { AsyncStorage } from 'react-native';
+
+// import {AuthToken} from '../helper/token'
+
 const initialState = []
 
 export default function notes (state = initialState, action) {
     switch (action.type) {
         case REGISTER_USER_SUCCESS:
-            // Auth.authenticateUser(action.user)
+            console.log("ini di reducer", action.user)
+            AsyncStorage.setItem('myKey', action.user.token);
+            // this.props.navigator.push({id: 'Notes'});
             // window.location = '/'
             return state
 

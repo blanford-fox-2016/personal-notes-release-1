@@ -16,8 +16,9 @@ export default class ListNote extends Component {
         const {notesReducers, actions} = this.props
 
         let ListNoteNodes = notesReducers.map(function (item) {
+            console.log(item)
             return(
-                <DataNotes key={item.id} notesReducers={item} {...actions}/>
+                <DataNotes key={item.TempNoteId} notesReducers={item} {...actions}/>
             )
         })
 

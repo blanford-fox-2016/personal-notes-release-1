@@ -18,8 +18,7 @@ import {
 import SplashPage from './app/components/SplashPage'
 import Auth from './app/components/Auth'
 import Register from './app/components/Register'
-import Notes from './app/components/Notes'
-import CreateNote from './app/components/CreateNote'
+import MainPage from './app/components/MainPage'
 import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
 import SuccessPage from './app/components/ResetPasswordSuccessPage'
@@ -66,15 +65,9 @@ export default class personalNotesRelease1 extends Component {
                         navigator={navigator} />
                 );
 
-            case 'Notes':
+            case 'MainPage':
                 return (
-                    <Notes
-                        navigator={navigator} />
-                );
-
-            case 'CreateNote':
-                return (
-                    <CreateNote
+                    <MainPage
                         navigator={navigator} />
                 );
 

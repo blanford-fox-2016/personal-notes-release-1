@@ -15,7 +15,7 @@ export default class Login extends Component {
     }
 
     gotoNotes() {
-        this.props.navigator.push({id: 'Notes'});
+        this.props.navigator.push({id: 'MainPage'});
     }
 
     gotoResetPassword() {

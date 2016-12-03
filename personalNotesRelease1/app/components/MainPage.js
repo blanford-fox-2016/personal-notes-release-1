@@ -1,66 +1,36 @@
-'use strict';
+import React, { Component, PropTypes } from 'react';
+import { Container, Content, Tabs } from 'native-base';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as AppActions from '../actions'
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Navigator,
-  TouchableHighlight,
-  TouchableOpacity
-} from 'react-native';
+import NotesPage from './NotesPage';
 
-export default class MainPage extends Component {
-  render() {
-    return (
-      <Navigator
-          renderScene={this.renderScene.bind(this)}
-          navigator={this.props.navigator}
-          navigationBar={
-            <Navigator.NavigationBar style={{backgroundColor: '#246dd5'}}
-                routeMapper={NavigationBarRouteMapper} />
-          } />
-    );
-  }
-  renderScene(route, navigator) {
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent:'center'}}>
-        <TouchableHighlight style={{backgroundColor: 'yellow', padding: 10}}
-            onPress={this.gotoPersonPage.bind(this)}>
-          <Text style={{color: 'yellow'}}>nextpage</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
-  gotoPersonPage() {
-    this.props.navigator.push({
-      id: 'PersonPage',
-      name: 'myhome',
-    });
-  }
+class MainPage extends Component {
+
+    render() {
+        const {actions, navigator} = this.props
+        return (
+            <NotesPage onCreateNote={actions.createNote}/>
+        );
+    }
 }
 
-var NavigationBarRouteMapper = {
-  LeftButton(route, navigator, index, navState) {
-    return (
-      <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}
-          onPress={() => navigator.parentNavigator.pop()}>
-        <Text style={{color: 'white', margin: 10,}}>
-          back
-        </Text>
-      </TouchableOpacity>
-    );
-  },
-  RightButton(route, navigator, index, navState) {
-    return null;
-  },
-  Title(route, navigator, index, navState) {
-    return (
-      <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}>
-        <Text style={{color: 'white', margin: 10, fontSize: 16}}>
-          home
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-};
+MainPage.propTypes = {
+    actions: PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+    return {
+
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {actions: bindActionCreators(AppActions, dispatch)}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainPage)

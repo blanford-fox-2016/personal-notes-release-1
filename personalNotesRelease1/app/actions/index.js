@@ -69,3 +69,41 @@ export function registerUser(TempUserId, name, password, age) {
             })
     }
 }
+
+export function addNote(User, TempNoteId, title, content) {
+    return {type: types.ADD_NOTE, User, TempNoteId, title, content}
+}
+
+export function createNoteFailure() {
+    return {type: types.ADD_NOTE_FAILURE}
+}
+
+export function createNoteSuccess(note) {
+    return {type: types.ADD_NOTE_SUCCESS, note}
+}
+
+export function createNote(User, TempNoteId, title, content) {
+    console.log("ini temp note: ", TempNoteId)
+    return dispatch => {
+        dispatch(addNote(User, TempNoteId, title, content))
+        return request
+            .post(`${SERVER_URL_NOTES}`)
+            .type('form')
+            .send({
+                TempNoteId: TempNoteId,
+                title: title,
+                content: content,
+                UserId: User.id
+            })
+            .set('Accept', 'application/json')
+            .end((err, res) => {
+                if (err) {
+                    console.error(err)
+                    dispatch(createNoteFailure())
+                }
+                else {
+                    dispatch(createNoteSuccess(res.body))
+                }
+            })
+    }
+}

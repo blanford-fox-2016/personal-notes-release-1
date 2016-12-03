@@ -6,17 +6,16 @@ import { Container, Content} from 'native-base';
 
 import DataNotes from './DataNotes'
 
-class ListNote extends Component {
+export default class ListNote extends Component {
 
-    componentDidMount() {
-        this.props.actions.getNotes()
+    constructor(props) {
+        super(props)
     }
 
     render() {
         const {notesReducers, actions} = this.props
 
         let ListNoteNodes = notesReducers.map(function (item) {
-            console.log("ini item: ", item)
             return(
                 <DataNotes key={item.id} notesReducers={item} {...actions}/>
             )
@@ -34,20 +33,6 @@ class ListNote extends Component {
 }
 
 ListNote.propTypes = {
-    notesReducers: PropTypes.array.isRequired
+    notesReducers: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
 }
-
-function mapStateToProps(state) {
-    return {
-        notesReducers: state.notesReducers
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {actions: bindActionCreators(AppActions, dispatch)}
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ListNote)

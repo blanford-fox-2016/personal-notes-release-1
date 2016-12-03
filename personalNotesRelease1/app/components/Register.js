@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var jwtDecode = require('jwt-decode');
+import jwtDecode from 'jwt-decode'
 // import { StyleSheet, View, Text, Image, TextInput, Button, Navigator,TouchableHighlight,
 //     TouchableOpacity } from 'react-native';
 
@@ -51,8 +51,8 @@ export default class Register extends Component {
     render() {
         const {navigator} = this.props.navigator
         // let token = jwt_decode(this.props.myKey)
-        var decoded = jwt_decode(this.props.myKey);
-        console.log(decoded);
+        // var decoded = jwt_decode(this.props.myKey);
+        // console.log(decoded);
         return (
             <Container>
                 <Content>

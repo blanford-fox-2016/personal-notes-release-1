@@ -4,7 +4,13 @@ import {
     LOAD_NOTES_SUCCESS,
     ADD_NOTE,
     ADD_NOTE_SUCCESS,
-    ADD_NOTE_FAILURE
+    ADD_NOTE_FAILURE,
+    UPDATE_NOTE,
+    UPDATE_NOTE_SUCCESS,
+    UPDATE_NOTE_FAILURE,
+    DELETE_NOTE,
+    DELETE_NOTE_SUCCESS,
+    DELETE_NOTE_FAILURE
 } from '../constant/ActionTypes'
 
 const initialState = []
@@ -16,9 +22,6 @@ export default function notes (state = initialState, action) {
 
         case LOAD_NOTES_SUCCESS:
             return action.notes
-
-        case LOAD_NOTES_FAILURE:
-            return state
 
         case ADD_NOTE:
             console.log("masuk", action)
@@ -58,7 +61,22 @@ export default function notes (state = initialState, action) {
                 return state
             }
 
+        case UPDATE_NOTE:
+            return state.map((note) => note.TempNoteId === action.TempNoteId ? Object.assign({}, note, {title: action.title, content: action.content}) : note)
+
+        case UPDATE_NOTE_SUCCESS:
+            return state
+
+        case DELETE_NOTE:
+            return state.filter((note) => note.TempNoteId !== action.TempNoteId)
+
+        case DELETE_NOTE_SUCCESS:
+            return state
+
+        case LOAD_NOTES_FAILURE:
         case ADD_NOTE_FAILURE:
+        case UPDATE_NOTE_FAILURE:
+        case DELETE_NOTE_FAILURE:
             return state
 
         default:

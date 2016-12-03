@@ -4,19 +4,19 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as AppActions from '../actions'
 
-import NotesPage from './NotesPage';
+import DetailNote from './DetailNote';
 
-class MainPage extends Component {
+class DetailNotePage extends Component {
 
     render() {
-        const {actions, navigator} = this.props
+        const {actions, navigator, route} = this.props
         return (
-            <NotesPage onCreateNote={actions.createNote} navigator={navigator}/>
+            <DetailNote deleteNote={actions.deleteNote} onUpdateNote={actions.updateNote} navigator={navigator} route={route} />
         );
     }
 }
 
-MainPage.propTypes = {
+DetailNotePage.propTypes = {
     actions: PropTypes.object.isRequired
 }
 
@@ -33,4 +33,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(MainPage)
+)(DetailNotePage)

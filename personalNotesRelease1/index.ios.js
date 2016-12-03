@@ -22,6 +22,7 @@ import MainPage from './app/components/MainPage'
 import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
 import SuccessPage from './app/components/ResetPasswordSuccessPage'
+import DetailNotePage from './app/components/DetailNotePage'
 
 import configureStore from './app/store'
 const store = configureStore()
@@ -45,7 +46,8 @@ export default class personalNotesRelease1 extends Component {
     }
     renderScene(route, navigator) {
         var routeId = route.id;
-
+        // console.log("ini navigator: ", navigator)
+        // console.log("ini route: ", route)
         switch (routeId) {
             case 'SplashPage':
                 return (
@@ -87,6 +89,12 @@ export default class personalNotesRelease1 extends Component {
                 return (
                     <SuccessPage
                         navigator={navigator} />
+                );
+
+            case 'DetailNotePage':
+                return (
+                    <DetailNotePage
+                        navigator={navigator} route={route} />
                 );
 
             default:

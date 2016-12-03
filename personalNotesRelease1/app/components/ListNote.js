@@ -13,12 +13,12 @@ export default class ListNote extends Component {
     }
 
     render() {
-        const {notesReducers, actions} = this.props
+        const {notesReducers, actions, navigator} = this.props
 
         let ListNoteNodes = notesReducers.map(function (item) {
             console.log(item)
             return(
-                <DataNotes key={item.TempNoteId} notesReducers={item} {...actions}/>
+                <DataNotes key={item.TempNoteId} notesReducers={item} {...actions} navigator={navigator} />
             )
         })
 

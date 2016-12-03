@@ -107,3 +107,72 @@ export function createNote(User, TempNoteId, title, content) {
             })
     }
 }
+
+export function editNote(TempNoteId, title, content) {
+    return {type: types.UPDATE_NOTE, TempNoteId, title, content}
+}
+
+export function updateNoteFailure() {
+    return {type: types.UPDATE_NOTE_FAILURE}
+}
+
+export function updateNoteSuccess(note) {
+    return {type: types.UPDATE_NOTE_SUCCESS, note}
+}
+
+export function updateNote(TempNoteId, title, content) {
+    return dispatch => {
+        dispatch(editNote(TempNoteId, title, content))
+        return request
+            .put(SERVER_URL_NOTES)
+            .set('Accept', 'application/json')
+            .type('form')
+            .send({
+                TempNoteId: TempNoteId,
+                title: title,
+                content: content
+            })
+            .end((err, res) => {
+                if(err){
+                    console.error(err);
+                    dispatch(updateNoteFailure())
+                }else{
+                    dispatch(updateNoteSuccess(res.body))
+                }
+            })
+    }
+}
+
+
+
+export function deleteDataNote(TempNoteId){
+    return {type: types.DELETE_NOTE, TempNoteId}
+}
+
+
+export function deleteNoteFailure(){
+    return {type: types.DELETE_NOTE_FAILURE}
+}
+
+export function deleteNoteSuccess(note){
+    return {type: types.DELETE_NOTE_SUCCESS, note}
+}
+
+export function deleteNote(TempNoteId){
+    return dispatch => {
+        dispatch(deleteDataNote(TempNoteId))
+        return request
+            .del(SERVER_URL_NOTES)
+            .send({
+                TempNoteId: TempNoteId
+            })
+            .end((err, res) => {
+                if(err){
+                    console.error(err);
+                    dispatch(deleteNoteFailure())
+                }else{
+                    dispatch(deleteNoteSuccess(res.body))
+                }
+            })
+    }
+}

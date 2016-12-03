@@ -64,7 +64,7 @@ class NotesPage extends Component {
     }
 
     render() {
-        const {notesReducers, actions} = this.props
+        const {notesReducers, actions, navigator} = this.props
         return (
             <Container>
                 <Header>
@@ -84,7 +84,7 @@ class NotesPage extends Component {
                 </Header>
 
                 <Content>
-                    <ListNote notesReducers={notesReducers} actions={actions} />
+                    <ListNote notesReducers={notesReducers} actions={actions} navigator={navigator} />
                     <Modal
                         animationType={"slide"}
                         transparent={false}

@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f62d05d-5846-4ad0-9b7e-db7320482592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/SideBar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/drawer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.authenticate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Auth.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/CreateNoteForm.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/CreateNoteForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/DataNotes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/DetailNote.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/DetailNote.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/ListNote.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/ListNote.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/MainPage.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/MainPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/NotesPage.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/NotesPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Profile.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/components/Register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/constant/ActionTypes.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/constant/ActionTypes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/helper/token.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/helper/token.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/index.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.notes.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.notes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.users.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/app/reducers/reducers.users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/index.ios.js" afterPath="$PROJECT_DIR$/personalNotesRelease1/index.ios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/ios/personalNotesRelease1.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/personalNotesRelease1/ios/personalNotesRelease1.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personalNotesRelease1/.gitignore" afterPath="$PROJECT_DIR$/personalNotesRelease1/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -123,14 +103,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="210" column="44" lean-forward="false" selection-start-line="210" selection-start-column="44" selection-end-line="210" selection-end-column="44" />
+            <state relative-caret-position="186">
+              <caret line="210" column="12" lean-forward="false" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="44" />
               <folding>
                 <element signature="e#1#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/personalNotesRelease1/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,6 +207,7 @@
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/NotesPage.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/components/DetailNote.js" />
         <option value="$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js" />
+        <option value="$PROJECT_DIR$/personalNotesRelease1/.gitignore" />
       </list>
     </option>
   </component>
@@ -299,156 +290,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reducers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal-notes-release-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personalNotesRelease1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -558,12 +399,12 @@
       <workItem from="1480854335529" duration="721000" />
       <workItem from="1480865435441" duration="2438000" />
       <workItem from="1480869190455" duration="3773000" />
-      <workItem from="1480910433742" duration="21528000" />
+      <workItem from="1480910433742" duration="22688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125347000" />
+    <option name="totallyTimeSpent" value="126507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -607,13 +448,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/NotesPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/components/PersonPage.js" />
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/index.ios.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -858,7 +692,7 @@
         <state relative-caret-position="262">
           <caret line="75" column="24" lean-forward="false" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
           <folding>
-            <element signature="e#0#326#0" expanded="true" />
+            <element signature="e#0#326#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -938,11 +772,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/personalNotesRelease1/app/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="210" column="44" lean-forward="false" selection-start-line="210" selection-start-column="44" selection-end-line="210" selection-end-column="44" />
+        <state relative-caret-position="186">
+          <caret line="210" column="12" lean-forward="false" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="44" />
           <folding>
             <element signature="e#1#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personalNotesRelease1/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

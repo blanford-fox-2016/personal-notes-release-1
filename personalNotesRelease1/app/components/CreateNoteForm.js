@@ -33,7 +33,7 @@ export default class CreateNoteForm extends Component {
 
 
     createNote(e) {
-        console.log("ini data: ", this.props.data)
+        // console.log("ini data: ", this.props.data)
         e.preventDefault()
         let TempNoteId = Date.now().toString()
         let title = this.state.title.trim()

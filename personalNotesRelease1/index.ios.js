@@ -12,8 +12,12 @@ import {
     Text,
     View,
     Navigator,
-    TouchableOpacity
+    TouchableOpacity,
+    AsyncStorage
 } from 'react-native';
+import decode from 'jwt-decode'
+
+import {Drawer} from 'native-base'
 
 import SplashPage from './app/components/SplashPage'
 import Auth from './app/components/Auth'
@@ -23,31 +27,114 @@ import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
 import SuccessPage from './app/components/ResetPasswordSuccessPage'
 import DetailNotePage from './app/components/DetailNotePage'
+import SideBar from './app/components/SideBar'
 
 import configureStore from './app/store'
 const store = configureStore()
 
+
 export default class personalNotesRelease1 extends Component {
+
+    componentDidUpdate() {
+        // console.log("masuk did update")
+        if (this.props.drawerState === 'opened') {
+            this.openDrawer();
+        }
+
+        if (this.props.drawerState === 'closed') {
+            this._drawer.close();
+        }
+    }
+
+    openDrawer() {
+        this._drawer.open();
+    }
+
+    closeDrawer() {
+        if (this.props.drawerState === 'opened') {
+            this.props.closeDrawer();
+        }
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            dataUser: {},
+            messages: []
+        }
+    }
+
+    componentDidMount() {
+        this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+        try {
+            var value = await AsyncStorage.getItem("myKey");
+            if (value !== null){
+                console.log("vallue: ", value)
+                this.setState({dataUser: decode(value)});
+                this._appendMessage('Recovered selection from disk: ' + value);
+            } else {
+                console.log("else")
+                this._appendMessage('Initialized with no selection on disk.');
+            }
+        } catch (error) {
+            console.log("catch")
+            this._appendMessage('AsyncStorage error: ' + error.message);
+        }
+    };
+
+    _appendMessage = (message) => {
+        this.setState({messages: this.state.messages.concat(message)});
+    };
+
     render() {
         return (
             <Provider store={store}>
-                <Navigator
-                    initialRoute={{id: 'SplashPage', name: 'Index'}}
-                    renderScene={this.renderScene.bind(this)}
-                    configureScene={(route) => {
-                        if (route.sceneConfig) {
-                            return route.sceneConfig;
-                        }
-                        return Navigator.SceneConfigs.FloatFromRight;
+                <Drawer
+                    ref={(ref) => { this._drawer = ref; }}
+                    type="overlay"
+                    tweenDuration={150}
+                    content={<SideBar />}
+                    tapToClose
+                    acceptPan={false}
+                    onClose={() => this.closeDrawer()}
+                    openDrawerOffset={0.2}
+                    panCloseMask={0.2}
+                    styles={{
+                        drawer: {
+                            shadowColor: '#000000',
+                            shadowOpacity: 0.8,
+                            shadowRadius: 3,
+                        },
                     }}
-                />
+                    tweenHandler={(ratio) => {  //eslint-disable-line
+                        return {
+                            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
+                            main: {
+                                opacity: (2 - ratio) / 2,
+                            },
+                        };
+                    }}
+                    negotiatePan
+                >
+                    <Navigator
+                        initialRoute={{id: 'SplashPage', name: 'Index'}}
+                        renderScene={this.renderScene.bind(this)}
+                        configureScene={(route) => {
+                            if (route.sceneConfig) {
+                                return route.sceneConfig;
+                            }
+                            return Navigator.SceneConfigs.FloatFromRight;
+                        }}
+                    />
+                </Drawer>
             </Provider>
         );
     }
     renderScene(route, navigator) {
         var routeId = route.id;
-        // console.log("ini navigator: ", navigator)
-        // console.log("ini route: ", route)
         switch (routeId) {
             case 'SplashPage':
                 return (
@@ -56,10 +143,19 @@ export default class personalNotesRelease1 extends Component {
                 );
 
             case 'Auth':
-                return (
-                    <Auth
-                        navigator={navigator} />
-                );
+                console.log("data user di case: ", this.state.dataUser)
+                if (this.state.dataUser.name) {
+                    return (
+                        <MainPage
+                            navigator={navigator} />
+                    );
+                }
+                else {
+                    return (
+                        <Auth
+                            navigator={navigator} />
+                    );
+                }
 
             case 'Register':
                 return (
@@ -114,24 +210,6 @@ export default class personalNotesRelease1 extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
 
 
 AppRegistry.registerComponent('personalNotesRelease1', () => personalNotesRelease1);

@@ -15,7 +15,7 @@ class Auth extends Component {
             <Container>
                 <Content>
                     <Tabs>
-                        <Login tabLabel='Login' navigator={navigator} />
+                        <Login onLoginUser={actions.loginUser} tabLabel='Login' navigator={navigator} />
                         <Register onRegisterUser={actions.registerUser} tabLabel='Register' navigator={navigator} />
                     </Tabs>
                 </Content>

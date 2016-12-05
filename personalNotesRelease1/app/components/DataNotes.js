@@ -9,13 +9,15 @@ export default class ListNote extends Component {
             id: 'DetailNotePage',
             TempNoteId: this.props.notesReducers.TempNoteId,
             title: this.props.notesReducers.title,
-            content: this.props.notesReducers.content
+            content: this.props.notesReducers.content,
+            token: this.props.token
         });
         // console.log("masuk detail", this.props.navigator)
     }
 
     render() {
-        const {notesReducers, actions, navigator} = this.props
+        const {notesReducers, actions, navigator, token} = this.props
+        console.log("props di data notes: ", this.props)
         return(
             <Card
                 style={{flex: 0}}>

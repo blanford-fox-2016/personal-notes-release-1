@@ -12,7 +12,7 @@ export default class Register extends Component {
     componentDidMount() {
         AsyncStorage.getItem("myKey").then((value) => {
             this.setState({"myKey": value})
-            console.log("ini di didmount: ", this.state.myKey)
+            // console.log("ini di didmount: ", this.state.myKey)
         }).done()
     }
 
@@ -39,7 +39,7 @@ export default class Register extends Component {
             return
         }
 
-        this.props.onRegisterUser(TempUserId, name, password, age)
+        this.props.onRegisterUser(TempUserId, name, password, age, this.props.navigator)
         this.setState({
             name: '',
             password: '',

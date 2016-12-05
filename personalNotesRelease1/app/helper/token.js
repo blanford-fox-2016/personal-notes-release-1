@@ -2,8 +2,10 @@
 
 export const AuthToken = {
     authenticateUser: (data) => {
-        console.log(data)
-        if (data.status === 'error') console.log('No account:', data)
+        // console.log(data)
+        if (data.status === 'error') {
+            // console.log('No account:', data)
+        }
         AuthToken.deauthenticateUser()
         // console.log('data:', data)
         // localStorage.setItem('token', data.token)

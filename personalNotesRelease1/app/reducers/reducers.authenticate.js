@@ -1,9 +1,8 @@
 import {
-    REGISTER_USER,
     REGISTER_USER_SUCCESS,
     REGISTER_USER_FAILURE,
-    LOGIN_USER,
-    LOGIN_USER_SUCCESS
+    LOGIN_USER_SUCCESS,
+    LOGIN_USER_FAILURE
 } from '../constant/ActionTypes'
 
 import { AsyncStorage } from 'react-native';
@@ -15,14 +14,15 @@ const initialState = []
 export default function notes (state = initialState, action) {
     switch (action.type) {
         case REGISTER_USER_SUCCESS:
-            // console.log("ini di reducer", action.user)
-
-            // this.props.navigator.push({id: 'Notes'});
-            // window.location = '/'
-            return state
+            return action.user
 
         case REGISTER_USER_FAILURE:
-            // console.log("gagal")
+            return state
+
+        case LOGIN_USER_SUCCESS:
+            return action.user
+
+        case LOGIN_USER_FAILURE:
             return state
 
         default:

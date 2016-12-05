@@ -10,7 +10,9 @@ import {
     UPDATE_NOTE_FAILURE,
     DELETE_NOTE,
     DELETE_NOTE_SUCCESS,
-    DELETE_NOTE_FAILURE
+    DELETE_NOTE_FAILURE,
+    SET_TOKEN,
+    GET_TOKEN
 } from '../constant/ActionTypes'
 
 const initialState = []
@@ -24,7 +26,7 @@ export default function notes (state = initialState, action) {
             return action.notes
 
         case ADD_NOTE:
-            console.log("masuk", action)
+            // console.log("masuk", action)
             return [
                 {
                     TempNoteId: action.TempNoteId,
@@ -36,25 +38,25 @@ export default function notes (state = initialState, action) {
             ]
 
         case ADD_NOTE_SUCCESS:
-            console.log("state timeline: ", state)
-            console.log("init dari reducers: ", action.note)
+            // console.log("state timeline: ", state)
+            // console.log("init dari reducers: ", action.note)
             let idObjects = state.map(function (x) {
                 // console.log("isi x object: ", x)
                 return x.TempNoteId
             })
 
-            console.log("isi id object: ", idObjects)
-
-            console.log("isi id action timeline id: ", action.note.TempNoteId)
+            // console.log("isi id object: ", idObjects)
+            //
+            // console.log("isi id action timeline id: ", action.note.TempNoteId)
 
             let idObject = idObjects.indexOf(action.note.TempNoteId)
-            console.log("isi id object seletah: ", idObject)
+            // console.log("isi id object seletah: ", idObject)
             if (idObject > -1) {
                 let newNoteFilter = state.filter((data) => {
 
                     return data.fake != true
                 })
-                console.log("new timeline filter: ", newNoteFilter)
+                // console.log("new timeline filter: ", newNoteFilter)
                 return [action.note, ...newNoteFilter]
             }
             else {

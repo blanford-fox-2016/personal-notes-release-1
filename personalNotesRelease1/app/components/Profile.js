@@ -39,7 +39,7 @@ export default class Notes extends Component {
         );
     }
     renderScene(route, navigator) {
-        console.log(this.state.searchStatus)
+        // console.log(this.state.searchStatus)
         return (
             <View style={{marginTop: 70, alignItems: 'center'}}>
                 <Text>First Name</Text>

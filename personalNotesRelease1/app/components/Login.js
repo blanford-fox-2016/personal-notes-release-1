@@ -9,13 +9,24 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
+            name: '',
             password: ''
         }
     }
 
-    gotoNotes() {
-        this.props.navigator.push({id: 'MainPage'});
+    loginUser(e) {
+        e.preventDefault()
+        let name = this.state.name.trim()
+        let password = this.state.password.trim()
+        if (!name) {
+            return
+        }
+
+        this.props.onLoginUser(name, password, this.props.navigator)
+        this.setState({
+            name: '',
+            password: ''
+        })
     }
 
     gotoResetPassword() {
@@ -36,8 +47,8 @@ export default class Login extends Component {
                         <InputGroup borderType='rounded' >
                             <Icon name='ios-person' style={{color:'#2ecc71'}}/>
                             <Input
-                                onChangeText={(username) => this.setState({username})}
-                                placeholder='Type your username here'/>
+                                onChangeText={(name) => this.setState({name})}
+                                placeholder='Type your name here'/>
                         </InputGroup>
                     </View>
 
@@ -52,7 +63,7 @@ export default class Login extends Component {
                     </View>
 
                     <Button
-                        onPress={this.gotoNotes.bind(this)}
+                        onPress={this.loginUser.bind(this)}
                         success
                         style={{ width:200, alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
                         Login
@@ -98,7 +109,7 @@ export default class Login extends Component {
                     </View>
                     <View style={styles.button}>
                         <Button
-                            onPress={this.gotoNotes.bind(this)}
+                            onPress={this.loginUser.bind(this)}
                             color={'white'}
                             title="Login"
                             accessibilityLabel="Login Account"

@@ -23,7 +23,7 @@ import {
     Textarea
 } from 'native-base';
 
-import ListNote from './ListNote'
+import decode from 'jwt-decode'
 
 class DetailNote extends Component {
 
@@ -33,7 +33,8 @@ class DetailNote extends Component {
             modalVisible: false,
             TempNoteId: this.props.route.TempNoteId,
             title: this.props.route.title,
-            content: this.props.route.content
+            content: this.props.route.content,
+            token: this.props.route.token
         }
     }
 
@@ -41,18 +42,18 @@ class DetailNote extends Component {
     saveEditNote(e) {
         e.preventDefault()
         let TempNoteId = this.state.TempNoteId
+        let token = this.state.token
         let title = this.state.title.trim()
         let content = this.state.content.trim()
+        let userData = decode(this.state.token)
         if (!title || !content) {
             return
         }
         let User = {
-            // id:Auth.getUser().id,
-            id: 225,
-            // username: Auth.getUser().username
+            id: userData.id,
             name: 'temp'
         }
-        this.props.onUpdateNote(TempNoteId, title, content)
+        this.props.onUpdateNote(TempNoteId, title, content, token)
         this.props.navigator.pop()
         this.setState({
             title: '',
@@ -66,10 +67,12 @@ class DetailNote extends Component {
             null,
             [
                 {text: 'OK', onPress: () => {
-                    this.props.deleteNote(this.state.TempNoteId)
+                    this.props.deleteNote(this.state.TempNoteId, this.state.token)
                     this.props.navigator.pop()
                 }},
-                {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+                {text: 'Cancel', onPress: () => {
+                    // console.log('Cancel Pressed!')
+                }},
             ]
         )
     }

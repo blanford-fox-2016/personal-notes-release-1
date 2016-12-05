@@ -32,7 +32,8 @@ class NotesPage extends Component {
         this.state = {
             modalVisible: false,
             title: '',
-            content: ''
+            content: '',
+            token: ''
         }
     }
 
@@ -46,12 +47,10 @@ class NotesPage extends Component {
             return
         }
         let User = {
-            // id:Auth.getUser().id,
-            id: 225,
-            // username: Auth.getUser().username
+            id: this.props.dataUser.id,
             name: 'temp'
         }
-        this.props.onCreateNote(User, TempNoteId, title, content)
+        this.props.onCreateNote(User, TempNoteId, title, content, this.state.token)
         this.setState({
             title: '',
             content: '',
@@ -59,20 +58,57 @@ class NotesPage extends Component {
         })
     }
 
+    _appendMessage = (message) => {
+        this.setState({messages: this.state.messages.concat(message)});
+    };
+
+
+    logoutUser = async () => {
+        try {
+            await AsyncStorage.removeItem("myKey");
+            this.props.navigator.replace({id: 'Auth'})
+        } catch (error) {
+            console.log("err")
+        }
+    };
+
     componentDidMount() {
-        this.props.actions.getNotes()
+        this._loadInitialState().done();
+        // this.props.actions.getNotes(this.props.token)
     }
 
+
+    _loadInitialState = async () => {
+        try {
+            var value = await AsyncStorage.getItem("myKey");
+            if (value !== null){
+                console.log("vallue: ", value)
+                this.setState({token: value});
+                this.props.actions.getNotes(value)
+            } else {
+                console.log("else")
+            }
+        } catch (error) {
+            console.log("catch")
+
+        }
+    };
+
+
+
     render() {
-        const {notesReducers, actions, navigator} = this.props
+        const {notesReducers, actions, navigator, dataUser} = this.props
+        // console.log("props di note page: ",  this.state.token)
         return (
             <Container>
                 <Header>
-                    <Button transparent>
-                        <Icon name='ios-menu' />
+                    <Button
+                        onPress={this.logoutUser}
+                        transparent>
+                        Logout
                     </Button>
 
-                    <Title>Notes</Title>
+                    <Title>{dataUser.name}</Title>
 
                     <Button
                         onPress={() => {
@@ -84,7 +120,7 @@ class NotesPage extends Component {
                 </Header>
 
                 <Content>
-                    <ListNote notesReducers={notesReducers} actions={actions} navigator={navigator} />
+                    <ListNote token={this.state.token} notesReducers={notesReducers} actions={actions} navigator={navigator} />
                     <Modal
                         animationType={"slide"}
                         transparent={false}
@@ -142,15 +178,11 @@ class NotesPage extends Component {
             </Container>
         );
     }
-
-    goToCreateNote() {
-        // this.props.navigator.push({id: 'CreateNote'});
-    }
 }
 
-AppRegistry.registerComponent(
-    'Notes',
-    () => NotesPage);
+// AppRegistry.registerComponent(
+//     'Notes',
+//     () => NotesPage);
 
 NotesPage.propTypes = {
     notesReducers: PropTypes.array.isRequired
@@ -158,7 +190,8 @@ NotesPage.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        notesReducers: state.notesReducers
+        notesReducers: state.notesReducers,
+        token: state.token
     }
 }
 

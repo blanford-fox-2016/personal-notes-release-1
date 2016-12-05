@@ -26,6 +26,9 @@ export default class Auth extends Component {
 }
 
 class RegisterForm extends Component {
+  _onHandlePress() {
+    this.props.navigator.push({id: 'menu'})
+  }
   render() {
     return(
       <Content>
@@ -63,7 +66,7 @@ class RegisterForm extends Component {
           </ListItem>
         </List>
 
-        <Button style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
+        <Button onPress={this._onHandlePress.bind(this)} style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
           Sign Up
         </Button>
       </Content>

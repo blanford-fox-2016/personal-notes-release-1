@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import { Container, Header, Content, Title, Button, Icon, H1, Text, List, ListItem, InputGroup, Input, Tabs } from 'native-base';
 
 export default class NewNote extends Component {
+  _Back() {
+    this.props.navigator.pop();
+  }
   render() {
     return (
       <Container>
         <Header>
-          <Button transparent>
+          <Button transparent onPress={this._Back.bind(this)}>
             <Icon name='ios-arrow-back' />
           </Button>
           <Title>

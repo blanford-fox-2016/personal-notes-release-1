@@ -3,11 +3,14 @@ import { Container, Header, Content, Title, Button, Icon, H3, Text, List, ListIt
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 export default class NoteList extends Component {
+  _Back() {
+    this.props.navigator.pop();
+  }
   render() {
     return (
       <Container>
         <Header>
-          <Button transparent>
+          <Button transparent onPress={this._Back.bind(this)}>
             <Icon name='ios-arrow-back' />
           </Button>
           <Title>

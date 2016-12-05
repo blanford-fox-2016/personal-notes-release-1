@@ -3,6 +3,18 @@ import { Container, Header, Content, Title, Button, Icon, H1, Text, List, ListIt
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 export default class Menu extends Component {
+  _NoteList() {
+    this.props.navigator.push({id: 'notelist'})
+  }
+  _NewNote() {
+    this.props.navigator.push({id: 'newnote'})
+  }
+  _UserProfile() {
+    this.props.navigator.push({id: 'userprofile'})
+  }
+  _LogOut() {
+    this.props.navigator.pop()
+  }
   render() {
     return (
       <Container>
@@ -13,19 +25,19 @@ export default class Menu extends Component {
         </Header>
         <Content>
             <Card>
-              <CardItem>
+              <CardItem button onPress={this._NoteList.bind(this)}>
                 <Icon name="ios-list-outline" style={{color:"#0A69FE"}}/>
                 <Text>Note Lists</Text>
               </CardItem>
-              <CardItem>
+              <CardItem button onPress={this._NewNote.bind(this)}>
                 <Icon name="ios-add-circle-outline" style={{color:"#0A69FE"}}/>
                 <Text>Create New Note</Text>
               </CardItem>
-              <CardItem>
+              <CardItem button onPress={this._UserProfile.bind(this)}>
                 <Icon name="ios-person-outline" style={{color:"#0A69FE"}}/>
                 <Text>My Profile</Text>
               </CardItem>
-              <CardItem>
+              <CardItem button onPress={this._LogOut.bind(this)}>
                 <Icon name="ios-log-out-outline" style={{color:"#0A69FE"}}/>
                 <Text>Log Out</Text>
               </CardItem>

@@ -34,7 +34,7 @@ class PersonalNote extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'menu'}}
+        initialRoute={{id: 'auth'}}
         renderScene={this._renderScene} />
     );
   }

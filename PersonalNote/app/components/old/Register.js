@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Button,
-  Navigator,
-  TouchableOpacity,
-  TouchableHighlight,
-  TextInput
+  AppRegistry, StyleSheet, Modal, Image, Platform
 } from 'react-native';
-// import {Button} from 'react-bootstrap';
+import { Container, Header, Title, Button, Icon } from 'native-base';
 
 export default class Register extends Component {
   constructor(props) {

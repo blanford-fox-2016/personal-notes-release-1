@@ -47,7 +47,7 @@ class MainPage extends Component {
         const {actions, navigator} = this.props
         console.log("ini props: ", this.props.actions)
         return (
-            <NotesPage dataUser={this.state.dataUser} openDrawer={actions.openDrawer} onCreateNote={actions.createNote} navigator={navigator}/>
+            <NotesPage clearData={actions.clearData} dataUser={this.state.dataUser} openDrawer={actions.openDrawer} onCreateNote={actions.createNote} navigator={navigator}/>
         );
     }
 }

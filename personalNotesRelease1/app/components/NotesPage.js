@@ -66,6 +66,7 @@ class NotesPage extends Component {
     logoutUser = async () => {
         try {
             await AsyncStorage.removeItem("myKey");
+            this.props.clearData()
             this.props.navigator.replace({id: 'Auth'})
         } catch (error) {
             console.log("err")
@@ -74,7 +75,7 @@ class NotesPage extends Component {
 
     componentDidMount() {
         this._loadInitialState().done();
-        // this.props.actions.getNotes(this.props.token)
+        // this.props.actions.getNotes()
     }
 
 

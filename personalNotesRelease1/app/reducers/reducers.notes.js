@@ -12,13 +12,18 @@ import {
     DELETE_NOTE_SUCCESS,
     DELETE_NOTE_FAILURE,
     SET_TOKEN,
-    GET_TOKEN
+    GET_TOKEN,
+    CLEAR_DATA
 } from '../constant/ActionTypes'
 
 const initialState = []
 
 export default function notes (state = initialState, action) {
     switch (action.type) {
+
+        case CLEAR_DATA:
+            return []
+
         case LOAD_NOTES:
             return []
 
@@ -29,7 +34,7 @@ export default function notes (state = initialState, action) {
             // console.log("masuk", action)
             return [
                 {
-                    TempNoteId: action.TempNoteId,
+                    TempNoteId: action.Note.TempNoteId,
                     title: 'temp',
                     content: 'temp',
                     fake: true
@@ -38,25 +43,25 @@ export default function notes (state = initialState, action) {
             ]
 
         case ADD_NOTE_SUCCESS:
-            // console.log("state timeline: ", state)
-            // console.log("init dari reducers: ", action.note)
+            console.log("state timeline: ", state)
+            console.log("init dari reducers: ", action.note)
             let idObjects = state.map(function (x) {
-                // console.log("isi x object: ", x)
+                console.log("isi x object: ", x)
                 return x.TempNoteId
             })
 
-            // console.log("isi id object: ", idObjects)
-            //
-            // console.log("isi id action timeline id: ", action.note.TempNoteId)
+            console.log("isi id object: ", idObjects)
+
+            console.log("isi id action timeline id: ", action.note.TempNoteId)
 
             let idObject = idObjects.indexOf(action.note.TempNoteId)
-            // console.log("isi id object seletah: ", idObject)
+            console.log("isi id object seletah: ", idObject)
             if (idObject > -1) {
                 let newNoteFilter = state.filter((data) => {
 
                     return data.fake != true
                 })
-                // console.log("new timeline filter: ", newNoteFilter)
+                console.log("new timeline filter: ", newNoteFilter)
                 return [action.note, ...newNoteFilter]
             }
             else {

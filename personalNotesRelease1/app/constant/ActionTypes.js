@@ -28,3 +28,5 @@ export const CLOSE_DRAWER = 'CLOSE_DRAWER';
 
 export const SET_TOKEN = 'SET_TOKEN'
 export const GET_TOKEN = 'GET_TOKEN'
+
+export const CLEAR_DATA = 'CLEAR_DATA'

@@ -66,9 +66,14 @@ export function loginUser(name, password, navigator) {
                     dispatch(loginUserFailure())
                 }
                 else {
-                    AsyncStorage.setItem('myKey', res.body.token);
-                    navigator.replace({id: 'MainPage'})
-                    dispatch(loginUserSuccess(res.body))
+                    if (res.body.token) {
+                        AsyncStorage.setItem('myKey', res.body.token);
+                        navigator.replace({id: 'MainPage'})
+                        dispatch(loginUserSuccess(res.body))
+                    }
+                    else {
+                        navigator.replace({id: 'Auth'})
+                    }
                 }
             })
     }
@@ -222,6 +227,12 @@ export function deleteNote(TempNoteId, token){
             })
     }
 }
+
+
+export function clearData() {
+    return {type: types.CLEAR_DATA}
+}
+
 
 export function getToken() {
     

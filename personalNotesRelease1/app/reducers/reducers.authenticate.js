@@ -23,7 +23,7 @@ export default function notes (state = initialState, action) {
             return action.user
 
         case LOGIN_USER_FAILURE:
-            return state
+            return "lala"
 
         default:
             return state

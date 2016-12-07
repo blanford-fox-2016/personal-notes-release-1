@@ -16,7 +16,7 @@ export default function reducer(state= [], action) {
 			return state.filter((data) => data.id !== action.id)
 		}
 		case "EDIT_NOTE": {
-			return state.map((data) => data.id === action.id ? 0bject.assign({}, data, {title: action.title, content: action.content }) : data)
+			return state.map((data) => data.id === action.id ? Object.assign({}, data, {title: action.title, content: action.content }) : data)
 		}
 		default:
 			return state

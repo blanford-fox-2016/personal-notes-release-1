@@ -1,14 +1,12 @@
 import 'babel-polyfill'
 import React, { Component } from 'react'
-// import {Provider} from 'react-redux'
-// import configureStore from './App/store'
+import { Provider } from 'react-redux'
+import store from './App/store'
 import {
   AppRegistry,
   NavigatorIOS,
   StyleSheet
 } from 'react-native'
-
-// var store = configureStore()
 
 var Login = require('./App/Components/Login')
 
@@ -22,7 +20,7 @@ var styles = StyleSheet.create({
 class MyPersonalNote extends Component {
   render() {
     return (
-      // <Provider store={store}>
+      <Provider store={store}>
         <NavigatorIOS
           style={styles.container}
           initialRoute = {{
@@ -30,7 +28,7 @@ class MyPersonalNote extends Component {
             component: Login
           }}
         />
-      // </Provider>
+      </Provider>
     );
   }
 }

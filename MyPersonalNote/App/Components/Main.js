@@ -10,9 +10,11 @@ import {
 import {
   Spinner
 } from 'native-base';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as githubApiActions from '../actions/githubApiActions' 
 
 var Dashboard = require('./Dashboard')
-var api = require('../Utils/api')
 
 var styles = StyleSheet.create({
     mainContainer: {
@@ -76,28 +78,8 @@ class Main extends Component {
       this.setState({
         isLoading: true
       })
-      api.getBio(this.state.username)
-        .then((res) => {
-          if(res.message === 'Not Found'){
-            this.setState({
-              error: 'User not found',
-              isLoading: false
-            })
-          } else {
-            this.props.navigator.push({
-              title: res.name || "Select an Option",
-              component: Dashboard,
-              passProps: {
-                userInfo: res
-              }
-            })
-            this.setState({
-              isLoading: false,
-              error: false,
-              username: ''
-            })
-          }
-        })
+
+      this.props.actions.getBio(this.state.username, this.props.navigator, Dashboard)
     }
     render() {
         var showErr = (
@@ -122,4 +104,17 @@ class Main extends Component {
     }
 }
 
-module.exports = Main
+function mapStateToProps(state){
+  return { data: state.github }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+    actions: bindActionCreators(githubApiActions, dispatch)
+  }
+}
+
+module.exports = connect(
+  null,
+  mapDispatchToProps
+  )(Main)

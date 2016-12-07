@@ -39,11 +39,13 @@ class Dashboard extends Component{
 			flex: 1
 		}
 		if(btn === 0){
-			obj.backgroundColor = '#48BBEC'
+			obj.backgroundColor = '#F5B627'
 		} else if (btn === 1){
-			obj.backgroundColor = '#E77AAE'
-		} else{
-			obj.backgroundColor = '#758BF4'
+			obj.backgroundColor = '#4AA33A'
+		} else if (btn === 2) {
+			obj.backgroundColor = '#257DF3'
+		} else {
+			obj.backgroundColor = '#E1294E'
 		}
 
 		return obj
@@ -95,6 +97,12 @@ class Dashboard extends Component{
 					onPress={this.goToNotes.bind(this)}
 					underlayColor='#88D4F5'>
 					<Text style={styles.buttonText}>View Notes</Text>
+				</TouchableHighlight>
+				<TouchableHighlight 
+					style={this.makeBackground(3)}
+					onPress={this.goToNotes.bind(this)}
+					underlayColor='#88D4F5'>
+					<Text style={styles.buttonText}>Logout</Text>
 				</TouchableHighlight>
 			</View>
 			)

@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
       marginTop: 65,
       flexDirection: 'column',
       justifyContent: 'center',
-      backgroundColor: '#48BBEC'
+      backgroundColor: '#E33A27'
     },
     title: {
       marginBottom: 20,

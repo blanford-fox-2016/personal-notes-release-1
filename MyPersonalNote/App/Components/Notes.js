@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
 	},
 	button: {
 		height: 60,
-		backgroundColor: '#48BBEC',
+		backgroundColor: '#3395F4',
 		flex: 3,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -39,7 +39,7 @@ var styles = StyleSheet.create({
 		padding: 10
 	},
 	footerContainer: {
-		backgroundColor: '#E3E3E3',
+		backgroundColor: '#eee',
 		alignItems: 'center',
 		flexDirection: 'row'
 	}

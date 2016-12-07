@@ -8,7 +8,7 @@ import {
 
 var styles= StyleSheet.create({
 	container: {
-		backgroundColor: '#48BBEC',
+		backgroundColor: '#3395F4',
 		paddingBottom: 10
 	},
 	name: {

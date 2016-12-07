@@ -79,7 +79,7 @@ class Main extends Component {
         isLoading: true
       })
 
-      this.props.actions.getBio(this.state.username, this.props.navigator, Dashboard)
+      this.props.actions.getBio(this.state.username, this.props.navigator, Dashboard, this.props.actions)
     }
     render() {
         var showErr = (
@@ -104,9 +104,9 @@ class Main extends Component {
     }
 }
 
-function mapStateToProps(state){
-  return { data: state.github }
-}
+// function mapStateToProps(state){
+//   return { data: state.github }
+// }
 
 function mapDispatchToProps(dispatch){
   return{
@@ -115,6 +115,7 @@ function mapDispatchToProps(dispatch){
 }
 
 module.exports = connect(
+  // mapStateToProps
   null,
   mapDispatchToProps
   )(Main)

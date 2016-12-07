@@ -52,22 +52,13 @@ class Dashboard extends Component{
 		this.props.navigator.push({
 			title: "User Profile",
 			component: Profile,
-			passProps: {userInfo: this.props.userInfo}
+			passProps: {
+				userInfo: this.props.userInfo
+			}
 		})
 	}
 	goToRepos(){
-		api.getRepos(this.props.userInfo.login)
-		.then((res)=>{
-			this.props.navigator.push({
-				title: "User Repos",
-				component: Repositories,
-				passProps: {
-					userInfo: this.props.userInfo,
-					repos: res
-				}
-			})
-		})
-		
+		this.props.actions.getRepos(this.props.userInfo, this.props.navigator, Repositories)
 	}
 	goToNotes(){
 		api.getNotes(this.props.userInfo.login)

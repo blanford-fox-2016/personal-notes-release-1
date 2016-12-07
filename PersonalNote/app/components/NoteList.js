@@ -3,6 +3,29 @@ import { Container, Header, Content, Title, Button, Icon, H3, Text, List, ListIt
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 export default class NoteList extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      results: {}
+    }
+  }
+  _LoadNotes(){
+    fetch('http://localhost:3000/api/note', {
+      method: "GET",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      this.setState({results: responseData});
+    })
+    .done()
+  }
+  componentDidMount() {
+    this._LoadNotes();
+  }
   _Back() {
     this.props.navigator.pop();
   }
@@ -21,24 +44,12 @@ export default class NoteList extends Component {
           </Button>
         </Header>
         <Content>
-            <Card>
+          <Card dataArray={this.state.results} renderRow={(note) =>
               <CardItem>
-                <H3>Note Title</H3>
-                <Text>Note Lists</Text>
+                <H3>{note.title}</H3>
+                <Text>{note.content}</Text>
               </CardItem>
-              <CardItem>
-                <H3>Note Title</H3>
-                <Text>Lorem ipsum dolor sit amet</Text>
-              </CardItem>
-              <CardItem>
-                <H3>Note Title</H3>
-                <Text>Lorem ipsum dolor sit amet</Text>
-              </CardItem>
-              <CardItem>
-                <H3>Note Title</H3>
-                <Text>Lorem ipsum dolor sit amet</Text>
-              </CardItem>
-            </Card>
+            }/>
         </Content>
       </Container>
     )

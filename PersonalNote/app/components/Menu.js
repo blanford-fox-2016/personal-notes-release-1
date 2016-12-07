@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import { Container, Header, Content, Title, Button, Icon, H1, Text, List, ListItem, Card, CardItem, Thumbnail} from 'native-base';
+import { AsyncStorage, AlertIOS, Alert } from 'react-native';
+import { Container, Header, Content, Title, Button, Icon, H1, Text, List, ListItem, Card, CardItem, Thumbnail, } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+
+var STORAGE_KEY = 'id_token';
 
 export default class Menu extends Component {
   _NoteList() {
@@ -12,8 +15,14 @@ export default class Menu extends Component {
   _UserProfile() {
     this.props.navigator.push({id: 'userprofile'})
   }
-  _LogOut() {
-    this.props.navigator.pop()
+  async _userLogout() {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEY);
+      AlertIOS.alert("You've been logged out! Good Bye!");
+      this.props.navigator.replace({'id':'auth'});
+    } catch(error) {
+      console.log('AsyncStorage' + error.message);
+    }
   }
   render() {
     return (
@@ -37,7 +46,7 @@ export default class Menu extends Component {
                 <Icon name="ios-person-outline" style={{color:"#0A69FE"}}/>
                 <Text>My Profile</Text>
               </CardItem>
-              <CardItem button onPress={this._LogOut.bind(this)}>
+              <CardItem button onPress={this._userLogout.bind(this)}>
                 <Icon name="ios-log-out-outline" style={{color:"#0A69FE"}}/>
                 <Text>Log Out</Text>
               </CardItem>

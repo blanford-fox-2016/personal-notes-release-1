@@ -181,10 +181,6 @@ class NotesPage extends Component {
     }
 }
 
-// AppRegistry.registerComponent(
-//     'Notes',
-//     () => NotesPage);
-
 NotesPage.propTypes = {
     notesReducers: PropTypes.array.isRequired
 }

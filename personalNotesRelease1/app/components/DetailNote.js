@@ -31,6 +31,7 @@ class DetailNote extends Component {
         super(props)
         this.state = {
             modalVisible: false,
+            NoteId: this.props.route.NoteId,
             TempNoteId: this.props.route.TempNoteId,
             title: this.props.route.title,
             content: this.props.route.content,
@@ -40,7 +41,9 @@ class DetailNote extends Component {
 
 
     saveEditNote(e) {
+        console.log("state nodeid: ", this.state.NoteId)
         e.preventDefault()
+        let NoteId = this.state.NoteId
         let TempNoteId = this.state.TempNoteId
         let token = this.state.token
         let title = this.state.title.trim()
@@ -53,7 +56,7 @@ class DetailNote extends Component {
             id: userData.id,
             name: 'temp'
         }
-        this.props.onUpdateNote(TempNoteId, title, content, token)
+        this.props.onUpdateNote(TempNoteId, title, content, token, NoteId)
         this.props.navigator.pop()
         this.setState({
             title: '',
@@ -143,10 +146,6 @@ class DetailNote extends Component {
         // this.props.navigator.push({id: 'CreateNote'});
     }
 }
-
-AppRegistry.registerComponent(
-    'Notes',
-    () => NotesPage);
 
 DetailNote.propTypes = {
     notesReducers: PropTypes.array.isRequired

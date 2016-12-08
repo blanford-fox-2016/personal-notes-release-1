@@ -30,3 +30,11 @@ export const SET_TOKEN = 'SET_TOKEN'
 export const GET_TOKEN = 'GET_TOKEN'
 
 export const CLEAR_DATA = 'CLEAR_DATA'
+
+export const LOAD_USERS = 'LOAD_USERS'
+export const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS'
+export const LOAD_USERS_FAILURE = 'LOAD_USERS_FAILURE'
+
+export const SHARE_NOTE = 'SHARE_NOTE'
+export const SHARE_NOTE_SUCCESS = 'SHARE_NOTE_SUCCESS'
+export const SHARE_NOTE_FAILURE = 'SHARE_NOTE_FAILURE'

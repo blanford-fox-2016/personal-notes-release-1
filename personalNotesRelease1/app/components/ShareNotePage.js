@@ -1,23 +1,23 @@
 import React, { Component, PropTypes } from 'react';
-import { Container, Content, Tabs } from 'native-base';
+import { Container, Content, Tabs, View, Text } from 'native-base';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as AppActions from '../actions'
 
-import DetailNote from './DetailNote';
+import ShareNote from './ShareNote';
 
-class DetailNotePage extends Component {
+class ShareNotePage extends Component {
 
     render() {
         const {actions, navigator, route} = this.props
         // console.log("props route: ", route)
         return (
-            <DetailNote deleteNote={actions.deleteNote} onUpdateNote={actions.updateNote} navigator={navigator} route={route} />
+            <ShareNote deleteNote={actions.deleteNote} onUpdateNote={actions.updateNote} navigator={navigator} route={route}/>
         );
     }
 }
 
-DetailNotePage.propTypes = {
+ShareNotePage.propTypes = {
     actions: PropTypes.object.isRequired
 }
 
@@ -34,4 +34,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(DetailNotePage)
+)(ShareNotePage)

@@ -43,6 +43,41 @@ export function getNotes(token) {
 }
 
 
+export function loadUsers() {
+    return {type: types.LOAD_USERS}
+}
+
+export function loadUsersSuccess(users) {
+    return {type: types.LOAD_USERS_SUCCESS, users: users}
+}
+
+export function loadUsersFailure() {
+    return {type: types.LOAD_USERS_FAILURE}
+}
+
+export function getUsers(token) {
+    console.log("masuk get users")
+    return dispatch => {
+        dispatch(loadUsers(token))
+        return request
+            .get(SERVER_URL_USERS)
+            .set('Accept', 'application/json')
+            .set('personalNoteToken', token)
+            .end((err, res) => {
+                if (err) {
+                    console.error(err)
+                    dispatch(loadUsersFailure())
+                }
+                else {
+                    console.log("masuk get")
+                    console.log("ini rest body: ",res.body)
+                    dispatch(loadUsersSuccess(res.body))
+                }
+            })
+    }
+}
+
+
 export function loginUserFailure() {
     return {type: types.LOGIN_USER_FAILURE}
 }
@@ -169,7 +204,7 @@ export function updateNoteSuccess(note) {
     return {type: types.UPDATE_NOTE_SUCCESS, note}
 }
 
-export function updateNote(TempNoteId, title, content, token) {
+export function updateNote(TempNoteId, title, content, token, NoteId) {
     return dispatch => {
         dispatch(editNote(TempNoteId, title, content))
         return request
@@ -180,13 +215,15 @@ export function updateNote(TempNoteId, title, content, token) {
             .send({
                 TempNoteId: TempNoteId,
                 title: title,
-                content: content
+                content: content,
+                NoteId: NoteId
             })
             .end((err, res) => {
                 if(err){
                     console.error(err);
                     dispatch(updateNoteFailure())
                 }else{
+                    console.log("ini body: ", res.body)
                     dispatch(updateNoteSuccess(res.body))
                 }
             })
@@ -229,26 +266,38 @@ export function deleteNote(TempNoteId, token){
 }
 
 
+
+export function shareNoteSuccess(note) {
+    return {type: types.SHARE_NOTE_SUCCESS, note}
+}
+
+export function shareNoteFailure() {
+    return {type: types.SHARE_NOTE_FAILURE}
+}
+
+export function shareNote(NodeId, token){
+    return dispatch => {
+        return request
+            .post(`${SERVER_URL_NOTES}/share`)
+            .set('Accept', 'application/json')
+            .set('personalNoteToken', token)
+            .send({
+                id: NodeId,
+                token: token
+            })
+            .end((err, res) => {
+                if(err){
+                    console.error(err);
+                    dispatch(shareNoteFailure())
+                }else{
+                    dispatch(shareNoteSuccess(res.body))
+                }
+            })
+    }
+}
+
 export function clearData() {
     return {type: types.CLEAR_DATA}
 }
 
 
-export function getToken() {
-    
-}
-
-export function setToken(token) {
-    console.log("token di action: ", token)
-    // return {type: types.SET_TOKEN, token}
-}
-
-// export function showDrawer() {
-//     return {type: types.OPEN_DRAWER}
-// }
-//
-// export function openDrawer() {
-//     return dispatch => {
-//         dispatch(showDrawer())
-//     }
-// }

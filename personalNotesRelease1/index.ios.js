@@ -17,8 +17,6 @@ import {
 } from 'react-native';
 import decode from 'jwt-decode'
 
-import {Drawer} from 'native-base'
-
 import SplashPage from './app/components/SplashPage'
 import Auth from './app/components/Auth'
 import Register from './app/components/Register'
@@ -27,7 +25,7 @@ import Profile from './app/components/Profile'
 import ResetPassword from './app/components/ResetPasswordPage'
 import SuccessPage from './app/components/ResetPasswordSuccessPage'
 import DetailNotePage from './app/components/DetailNotePage'
-import SideBar from './app/components/SideBar'
+import ShareNotePage from './app/components/ShareNotePage'
 
 import configureStore from './app/store'
 const store = configureStore()
@@ -92,44 +90,16 @@ export default class personalNotesRelease1 extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Drawer
-                    ref={(ref) => { this._drawer = ref; }}
-                    type="overlay"
-                    tweenDuration={150}
-                    content={<SideBar />}
-                    tapToClose
-                    acceptPan={false}
-                    onClose={() => this.closeDrawer()}
-                    openDrawerOffset={0.2}
-                    panCloseMask={0.2}
-                    styles={{
-                        drawer: {
-                            shadowColor: '#000000',
-                            shadowOpacity: 0.8,
-                            shadowRadius: 3,
-                        },
+                <Navigator
+                    initialRoute={{id: 'SplashPage', name: 'Index'}}
+                    renderScene={this.renderScene.bind(this)}
+                    configureScene={(route) => {
+                        if (route.sceneConfig) {
+                            return route.sceneConfig;
+                        }
+                        return Navigator.SceneConfigs.FloatFromRight;
                     }}
-                    tweenHandler={(ratio) => {  //eslint-disable-line
-                        return {
-                            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
-                            main: {
-                                opacity: (2 - ratio) / 2,
-                            },
-                        };
-                    }}
-                    negotiatePan
-                >
-                    <Navigator
-                        initialRoute={{id: 'SplashPage', name: 'Index'}}
-                        renderScene={this.renderScene.bind(this)}
-                        configureScene={(route) => {
-                            if (route.sceneConfig) {
-                                return route.sceneConfig;
-                            }
-                            return Navigator.SceneConfigs.FloatFromRight;
-                        }}
-                    />
-                </Drawer>
+                />
             </Provider>
         );
     }
@@ -190,6 +160,12 @@ export default class personalNotesRelease1 extends Component {
             case 'DetailNotePage':
                 return (
                     <DetailNotePage
+                        navigator={navigator} route={route} />
+                );
+
+            case 'ShareNotePage':
+                return (
+                    <ShareNotePage
                         navigator={navigator} route={route} />
                 );
 
